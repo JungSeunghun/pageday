@@ -1,6 +1,7 @@
 interface FormData {
   value: string;
   isValid: boolean;
+  isFocused: boolean;
   errorMessage: string;
   regex: RegExp;
 }
@@ -72,6 +73,7 @@ export interface AccountInfoProps {
   handleBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
   handleNext: () => void;
   handlePrev: () => void;
+  handleFocus: (e: React.FocusEvent<HTMLInputElement>) => void;
 }
 
 export interface PersonalInfoProps {
@@ -81,4 +83,5 @@ export interface PersonalInfoProps {
   handleSubmit: (e: React.FormEvent) => void;
   handleKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   handlePrev: () => void;
+  handleFocus: (e: React.FocusEvent<HTMLInputElement>) => void;
 }

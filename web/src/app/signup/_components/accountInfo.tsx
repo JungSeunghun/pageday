@@ -4,13 +4,13 @@ import React from 'react';
 import styles from '../page.module.css';
 import { AccountInfoProps } from '../_props/props';
 
-const AccountInfo: React.FC<AccountInfoProps> = ({ signupFormData, handleChange, handleBlur, handleNext, handlePrev }) => {
+const AccountInfo: React.FC<AccountInfoProps> = ({ signupFormData, handleChange, handleBlur, handleNext, handlePrev, handleFocus }) => {
   return (
     <div className={styles.formContainer}>
       <h2 className={styles.formHeader}>계정 정보 입력</h2>
       
       <form className={styles.form} onSubmit={(e) => { e.preventDefault(); handleNext(); }}>
-        <div className={`${styles.inputGroup} ${signupFormData.username.value && !signupFormData.username.isValid ? styles.error : ''}`}>
+        <div className={`${styles.inputGroup} ${signupFormData.username.value && !signupFormData.username.isValid && !signupFormData.username.isFocused ? styles.error : ''}`}>
           <input
             id="username"
             type="text"
@@ -19,12 +19,13 @@ const AccountInfo: React.FC<AccountInfoProps> = ({ signupFormData, handleChange,
             value={signupFormData.username.value}
             onChange={handleChange}
             onBlur={handleBlur}
+            onFocus={handleFocus}
           />
           <label htmlFor="username" className={styles.label}>아이디</label>
-          {signupFormData.username.value && !signupFormData.username.isValid && <span className={styles.errorMessage}>{signupFormData.username.errorMessage}</span>}
+          {signupFormData.username.value && !signupFormData.username.isValid && !signupFormData.username.isFocused && <span className={styles.errorMessage}>{signupFormData.username.errorMessage}</span>}
         </div>
 
-        <div className={`${styles.inputGroup} ${signupFormData.email.value && !signupFormData.email.isValid ? styles.error : ''}`}>
+        <div className={`${styles.inputGroup} ${signupFormData.email.value && !signupFormData.email.isValid && !signupFormData.email.isFocused ? styles.error : ''}`}>
           <input
             id="email"
             type="email"
@@ -33,12 +34,13 @@ const AccountInfo: React.FC<AccountInfoProps> = ({ signupFormData, handleChange,
             value={signupFormData.email.value}
             onChange={handleChange}
             onBlur={handleBlur}
+            onFocus={handleFocus}
           />
           <label htmlFor="email" className={styles.label}>이메일</label>
-          {signupFormData.email.value && !signupFormData.email.isValid && <span className={styles.errorMessage}>{signupFormData.email.errorMessage}</span>}
+          {signupFormData.email.value && !signupFormData.email.isValid && !signupFormData.email.isFocused && <span className={styles.errorMessage}>{signupFormData.email.errorMessage}</span>}
         </div>
 
-        <div className={`${styles.inputGroup} ${signupFormData.password.value && !signupFormData.password.isValid ? styles.error : ''}`}>
+        <div className={`${styles.inputGroup} ${signupFormData.password.value && !signupFormData.password.isValid && !signupFormData.password.isFocused ? styles.error : ''}`}>
           <input
             id="password"
             type="password"
@@ -47,12 +49,13 @@ const AccountInfo: React.FC<AccountInfoProps> = ({ signupFormData, handleChange,
             value={signupFormData.password.value}
             onChange={handleChange}
             onBlur={handleBlur}
+            onFocus={handleFocus}
           />
           <label htmlFor="password" className={styles.label}>비밀번호</label>
-          {signupFormData.password.value && !signupFormData.password.isValid && <span className={styles.errorMessage}>{signupFormData.password.errorMessage}</span>}
+          {signupFormData.password.value && !signupFormData.password.isValid && !signupFormData.password.isFocused && <span className={styles.errorMessage}>{signupFormData.password.errorMessage}</span>}
         </div>
 
-        <div className={`${styles.inputGroup} ${signupFormData.confirmPassword.value && !signupFormData.confirmPassword.isValid ? styles.error : ''}`}>
+        <div className={`${styles.inputGroup} ${signupFormData.confirmPassword.value && !signupFormData.confirmPassword.isValid && !signupFormData.confirmPassword.isFocused ? styles.error : ''}`}>
           <input
             id="confirmPassword"
             type="password"
@@ -61,9 +64,10 @@ const AccountInfo: React.FC<AccountInfoProps> = ({ signupFormData, handleChange,
             value={signupFormData.confirmPassword.value}
             onChange={handleChange}
             onBlur={handleBlur}
+            onFocus={handleFocus}
           />
           <label htmlFor="confirmPassword" className={styles.label}>비밀번호 확인</label>
-          {signupFormData.confirmPassword.value && !signupFormData.confirmPassword.isValid && <span className={styles.errorMessage}>{signupFormData.confirmPassword.errorMessage}</span>}
+          {signupFormData.confirmPassword.value && !signupFormData.confirmPassword.isValid && !signupFormData.confirmPassword.isFocused && <span className={styles.errorMessage}>{signupFormData.confirmPassword.errorMessage}</span>}
         </div>
 
         <div className={styles.buttonGroup}>
