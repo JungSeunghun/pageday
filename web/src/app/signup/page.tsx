@@ -11,148 +11,75 @@ import Agreements from './_components/agreements';
 const Signup: React.FC = () => {
   const [step, setStep] = useState(1);
   const [signupFormData, setSignupForData] = useState<SignupFormData>({
-    username: '',
-    email: '',
-    emailCode: '',
-    password: '',
-    confirmPassword: '',
-    nickname: '',
-    name: '',
-    year: '',
-    month: '',
-    day: '',
-    phone1: '',
-    phone2: '',
-    phone3: '',
+    name: {value: '', isValid: false, errorMessage: '2자 이상 30자 이하의 한글 또는 영문자', regex: /^[가-힣a-zA-Z\s]{2,30}$/},
+    username: {value: '', isValid: false, errorMessage: '4자 이상 16자 이하의 소문자 영문자와 숫자', regex: /^(?=.*[a-z])[a-z0-9]{4,16}$/},
+    email: {value: '', isValid: false, errorMessage: '잘못된 이메일 주소입니다.', regex: /^[^\s@]+@[^\s@]+\.[^\s@]+$/},
+    emailCode: {value: '', isValid: false, errorMessage: '잘못된 보안코드입니다.', regex: /^\d{6}$/},
+    password: {value: '', isValid: false, errorMessage: '8자 이상 16자 이하의 대문자, 소문자, 숫자, 특수문자 하나 이상 포함', regex: /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,16}$/},
+    confirmPassword: {value: '', isValid: false, errorMessage: '비밀번호가 일치하지 않습니다.', regex: /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,16}$/},
+    nickname: {value: '', isValid: false, errorMessage: '2자 이상 10자 이하의 한글, 영문자 또는 숫자', regex: /^(?=.*[가-힣a-zA-Z])[가-힣a-zA-Z0-9]{2,10}$/},
+    year: {value: '', isValid: false, errorMessage: '예: 1990', regex: /^(19\d{2}|20\d{2})$/},
+    month: {value: '', isValid: false, errorMessage: '예: 1, 12', regex: /^(1[0-2]|[1-9])$/},
+    day: {value: '', isValid: false, errorMessage: '예: 1, 31', regex: /^(3[01]|[12][0-9]|[1-9])$/},
+    phone1: {value: '', isValid: false, errorMessage: '2-3자리 숫자', regex: /^\d{2,3}$/},
+    phone2: {value: '', isValid: false, errorMessage: '3-4자리 숫자', regex: /^\d{3,4}$/},
+    phone3: {value: '', isValid: false, errorMessage: '4자리 숫자', regex: /^\d{4}$/},
   });
-  const [errors, setErrors] = useState<Partial<SignupFormData>>({});
   const [agreements, setAgreements] = useState({
     privacy: false,
     terms: false,
     all: false,
   });
-  
-  const validateField = (id: keyof SignupFormData, value: string) => {
-    switch (id) {
-      case 'name':
-        if (!regexPatterns.name.test(value)) {
-          return '2자 이상 30자 이하의 한글 또는 영문자';
-        }
-        break;
-      case 'username':
-        if (!regexPatterns.username.test(value)) {
-          return '4자 이상 16자 이하의 소문자 영문자와 숫자';
-        }
-        break;
-      case 'email':
-        if (!regexPatterns.email.test(value)) {
-          return '잘못된 이메일 주소';
-        }
-        break;
-      case 'nickname':
-        if (!regexPatterns.nickname.test(value)) {
-          return '2자 이상 10자 이하의 한글, 영문자 또는 숫자';
-        }
-        break;
-      case 'password':
-        if (!regexPatterns.password.test(value)) {
-          return '8자 이상 16자 이하의 대문자, 소문자, 숫자, 특수문자 하나 이상 포함';
-        }
-        break;
-      case 'confirmPassword':
-        if (value !== signupFormData.password) {
-          return '비밀번호가 일치하지 않음';
-        }
-        break;
-      case 'year':
-        if (!regexPatterns.year.test(value)) {
-          return '예: 1990';
-        }
-        break;
-      case 'month':
-        if (!regexPatterns.month.test(value)) {
-          return '예: 1, 12';
-        }
-        break;
-      case 'day':
-        if (!regexPatterns.day.test(value)) {
-          return '예: 1, 31';
-        }
-        break;
-      case 'phone1':
-        if (!regexPatterns.phone1.test(value)) {
-          return '2-3자리 숫자';
-        }
-        break;
-      case 'phone2':
-        if (!regexPatterns.phone2.test(value)) {
-          return '3-4자리 숫자';
-        }
-        break;
-      case 'phone3':
-        if (!regexPatterns.phone3.test(value)) {
-          return '4자리 숫자';
-        }
-        break;
-      default:
-        return '';
-    }
 
-    return '';
+  const isValidField = (id: keyof SignupFormData, value: string) => {
+    const field = signupFormData[id];
+    let isValid = false;
+  
+    if (id === 'confirmPassword') {
+      isValid = value === signupFormData.password.value;
+    } else {
+      isValid = field.regex.test(value);
+    }
+  
+    setSignupForData(prevState => ({
+      ...prevState,
+      [id]: {
+        ...prevState[id],
+        isValid: isValid
+      }
+    }));
+  
+    return isValid;
   };
 
   const validate = () => {
-    const newErrors: Partial<SignupFormData> = {};
-
+    let isValid = false;
     (Object.keys(signupFormData) as (keyof SignupFormData)[]).forEach(key => {
-      const error = validateField(key, signupFormData[key]);
-      if (error) {
-        newErrors[key] = error;
-      }
+      isValid = isValidField(key, signupFormData[key].value)
     });
 
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    return isValid;
   };
 
   const validateAccountInfo = () => {
-    const newErrors: Partial<AccountInfoData> = {};
-
+    let isValid = false;
     const accountInfoKeys: (keyof AccountInfoData)[] = ['username', 'email', 'password', 'confirmPassword'];
-  
     accountInfoKeys.forEach(key => {
-      const error = validateField(key, signupFormData[key]);
-      if (error) {
-        newErrors[key] = error;
-      }
-    });
-  
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-  
-  const validatePersonalInfo = () => {
-    const newErrors: Partial<PersonalInfoData> = {};
-
-    const accountInfoKeys: (keyof PersonalInfoData)[] = ['nickname', 'name', 'year', 'month', 'day', 'phone1', 'phone2', 'phone3'];
-  
-    accountInfoKeys.forEach(key => {
-      const error = validateField(key, signupFormData[key]);
-      if (error) {
-        newErrors[key] = error;
-      }
-    });
-  
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+      isValid = isValidField(key, signupFormData[key].value)
+    })
+    return isValid;
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
-    setSignupForData(prevState => ({ ...prevState, [id]: value }));
-    if (errors[id as keyof SignupFormData]) {
-      setErrors(prevState => ({ ...prevState, [id]: '' }));
-    }
+
+    setSignupForData(prevState => ({
+      ...prevState,
+      [id]: {
+        ...prevState[id as keyof SignupFormData],
+        value: value
+      }
+    }));
   };
 
   const isAvailableUsername = async () => {
@@ -161,22 +88,38 @@ const Signup: React.FC = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ "username": signupFormData.username }),
+      body: JSON.stringify({ "username": signupFormData.username.value }),
     });
 
     if (response) {
       if(response.ok) {
         const data = await response.json();
-        if(data.available == false) {
-          setErrors(prevState => ({ ...prevState, "username": '존재하는 아이디입니다.' }));
-        } else {
-          return true;
-        }
+        setSignupForData(prevState => ({
+          ...prevState,
+          username: {
+            ...prevState.username,
+            isValid: data.available
+          }
+        }));
+  
+        return data.available;
       } else {
-        setErrors(prevState => ({ ...prevState, "username": '오류가 발생했습니다.' }));
+        setSignupForData(prevState => ({
+          ...prevState,
+          username: {
+            ...prevState.username,
+            isValid: false
+          }
+        }));
       }
     } else {
-      setErrors(prevState => ({ ...prevState, "username": '' }));
+      setSignupForData(prevState => ({
+        ...prevState,
+        username: {
+          ...prevState.username,
+          isValid: false
+        }
+      }));
     }
 
     return false;
@@ -188,22 +131,38 @@ const Signup: React.FC = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ "email": signupFormData.email }),
+      body: JSON.stringify({ "email": signupFormData.email.value }),
     });
 
     if (response) {
       if(response.ok) {
         const data = await response.json();
-        if(data.available == false) {
-          setErrors(prevState => ({ ...prevState, "email": '존재하는 이메일입니다.' }));
-        } else {
-          return true;
-        }
+        setSignupForData(prevState => ({
+          ...prevState,
+          email: {
+            ...prevState.email,
+            isValid: data.available
+          }
+        }));
+  
+        return data.available;
       } else {
-        setErrors(prevState => ({ ...prevState, "email": '오류가 발생했습니다.' }));
+        setSignupForData(prevState => ({
+          ...prevState,
+          email: {
+            ...prevState.email,
+            isValid: false
+          }
+        }));
       }
     } else {
-      setErrors(prevState => ({ ...prevState, "email": '' }));
+      setSignupForData(prevState => ({
+        ...prevState,
+        email: {
+          ...prevState.email,
+          isValid: false
+        }
+      }));
     }
 
     return false;
@@ -215,22 +174,36 @@ const Signup: React.FC = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ "nickname": signupFormData.nickname }),
+      body: JSON.stringify({ "nickname": signupFormData.nickname.value }),
     });
 
     if (response) {
       if(response.ok) {
         const data = await response.json();
-        if(data.available == false) {
-          setErrors(prevState => ({ ...prevState, "nickname": '존재하는 별명입니다.' }));
-        } else {
-          return true;
-        }
+        setSignupForData(prevState => ({
+          ...prevState,
+          nickname: {
+            ...prevState.nickname,
+            isValid: data.available
+          }
+        }));
       } else {
-        setErrors(prevState => ({ ...prevState, "nickname": '오류가 발생했습니다.' }));
+        setSignupForData(prevState => ({
+          ...prevState,
+          nickname: {
+            ...prevState.nickname,
+            isValid: false
+          }
+        }));
       }
     } else {
-      setErrors(prevState => ({ ...prevState, "nickname": '' }));
+      setSignupForData(prevState => ({
+        ...prevState,
+        nickname: {
+          ...prevState.nickname,
+          isValid: false
+        }
+      }));
     }
 
     return false;
@@ -238,24 +211,15 @@ const Signup: React.FC = () => {
 
   const handleBlur = async (e: React.FocusEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
-    const error = validateField(id as keyof SignupFormData, value);
-    if (error) {
-      setErrors(prevState => ({ ...prevState, [id]: error }));
-    } else {
-      setErrors(prevState => ({ ...prevState, [id]: '' }));
-    }
+    const isValid = isValidField(id as keyof SignupFormData, value);
 
-    if(!error) {
-      try {
-        if(id === "username") {
-          isAvailableUsername();
-        } else if(id === "email") {
-          isAvailableEmail();
-        } else if (id === "nickname") {
-          isAvailableNickname();
-        }
-      } catch (error) {
-        setErrors(prevState => ({ ...prevState, [id]: '오류가 발생했습니다.' }));
+    if(isValid) {
+      if(id === "username") {
+        isAvailableUsername();
+      } else if(id === "email") {
+        isAvailableEmail();
+      } else if (id === "nickname") {
+        isAvailableNickname();
       }
     }
   };
@@ -266,13 +230,13 @@ const Signup: React.FC = () => {
     }
   };
 
-  const handleNext = () => {
+  const handleNext = async() => {
     if (step === 1) {
       if (agreements.privacy && agreements.terms) {
         setStep(2);
       }
     } else if (step === 2) {
-      if (validateAccountInfo() && isAvailableUsername() && isAvailableEmail()) {
+      if (validateAccountInfo() && await isAvailableUsername() && await isAvailableEmail()) {
         setStep(3);
       }
     }
@@ -325,7 +289,6 @@ const Signup: React.FC = () => {
       {step === 2 && (
         <AccountInfo
           signupFormData={signupFormData}
-          errors={errors}
           handleChange={handleChange}
           handleBlur={handleBlur}
           handleNext={handleNext}
@@ -335,7 +298,6 @@ const Signup: React.FC = () => {
       {step === 3 && (
         <PersonalInfo
           signupFormData={signupFormData}
-          errors={errors}
           handleChange={handleChange}
           handleBlur={handleBlur}
           handleSubmit={handleSubmit}
