@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Link from "next/link";
+import Header from "./_components/header/header";
+import Footer from "./_components/footer/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,19 +20,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div className={"mainContainer"}>
-          <header className={"header"}>
-            <h1>PageDay</h1>
-            <nav>
-              <Link href="/login">로그인</Link>
-              <Link href="/signup">회원가입</Link>
-            </nav>
-          </header>
+          <Header />
           <main className={"main"}>
             {children}
           </main>
-          <footer className={"footer"}>
-            &copy; 2024 PageDay
-          </footer>
+          <Footer/>
         </div>
       </body>
     </html>

@@ -4,11 +4,12 @@ import React, { useState } from 'react';
 import styles from './page.module.css';
 import AccountInfo from './_components/accountInfo';
 import PersonalInfo from './_components/personalInfo';
-import { AccountInfoData, PersonalInfoData, SignupFormData } from './_props/props';
-import { regexPatterns } from '../_utils/regex';
+import { AccountInfoData, SignupFormData } from './_props/props';
 import Agreements from './_components/agreements';
+import { useRouter } from 'next/navigation';
 
 const Signup: React.FC = () => {
+  const router = useRouter();
   const [step, setStep] = useState(1);
   const [signupFormData, setSignupFormData] = useState<SignupFormData>({
     name: {value: '', isValid: false, isFocused: false, errorMessage: '2자 이상 30자 이하의 한글 또는 영문자', regex: /^[가-힣a-zA-Z\s]{2,30}$/},
@@ -36,7 +37,7 @@ const Signup: React.FC = () => {
     let isValid = false;
   
     if (id === 'confirmPassword') {
-      isValid = value === signupFormData.password.value;
+      isValid = value === signupFormData.password.value && value !== '';
     } else {
       isValid = field.regex.test(value);
     }
@@ -254,7 +255,7 @@ const Signup: React.FC = () => {
         setStep(2);
       }
     } else if (step === 2) {
-      if (validateAccountInfo() && await isAvailableUsername() && await isAvailableEmail()) {
+      if (validateAccountInfo()) {
         setStep(3);
       }
     }
@@ -268,15 +269,29 @@ const Signup: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    let values: { [key: string]: string } = {};
+
+    for (let key in signupFormData) {
+      if (signupFormData.hasOwnProperty(key)) {
+        values[key] = signupFormData[key as keyof SignupFormData].value;
+      }
+    }
+
     if (validate()) {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/v1/api/signup`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(signupFormData),
+          body: JSON.stringify(values),
         });
-        console.log(response);
+        
+        if (response) {
+          if(response.ok) {
+            router.push("/login")
+          }
+        }
     }
   };
 
