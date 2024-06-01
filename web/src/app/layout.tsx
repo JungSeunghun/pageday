@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "./_components/header/header";
 import Footer from "./_components/footer/footer";
+import { AuthProvider } from "./_context/AuthContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,13 +20,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className={"mainContainer"}>
-          <Header />
-          <main className={"main"}>
-            {children}
-          </main>
-          <Footer/>
-        </div>
+        <AuthProvider>
+          <div className={"mainContainer"}>
+            <Header />
+            <main className={"main"}>
+              {children}
+            </main>
+            <Footer/>
+          </div>
+        </AuthProvider>
       </body>
     </html>
   );

@@ -289,7 +289,7 @@ const Signup: React.FC = () => {
         
         if (response) {
           if(response.ok) {
-            router.push("/login")
+            router.push("/signin")
           }
         }
     }

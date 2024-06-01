@@ -3,40 +3,33 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import styles from './page.module.css';
-import { useRouter } from 'next/navigation';
+import { useAuth } from '../_context/AuthContext';
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const router = useRouter();
+  const [error, setError] = useState('');
+  const { login } = useAuth();
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    try {
-      const response = await fetch('/api/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
-      });
+    setError('');
 
-      if (response.ok) {
-        const data = await response.json();
-        document.cookie = `authToken=${data.token}; path=/`;
-        router.push('/main');
+    try {
+      await login(username, password);
+    } catch (err) {
+      if (err instanceof Error) {
+        setError(err.message);
       } else {
-        console.error('Login failed', await response.text());
+        setError('An unexpected error occurred');
       }
-    } catch (error) {
-      console.error('Login failed', error);
     }
   };
 
   return (
     <div className={styles.formContainer}>
       <h2>로그인</h2>
-      <form className={styles.form} onSubmit={handleLogin}>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <input 
           type="text" 
           placeholder="아이디" 
@@ -50,6 +43,7 @@ const Login: React.FC = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)} />
         <button type="submit" className={styles.button}>로그인</button>
+        {error && <p className={styles.error}>{error}</p>}
       </form>
       <p>
         계정이 없으신가요?{' '}
