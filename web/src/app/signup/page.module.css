@@ -39,6 +39,12 @@
   margin-bottom: 1rem;
 }
 
+.inputButtonGroup {
+  display: flex;
+  width: 100%;
+  gap: 16px;
+}
+
 .label {
   position: absolute;
   top: -0.75rem;
@@ -74,12 +80,12 @@
   border-radius: 5px;
   cursor: pointer;
   flex: 1;
+  min-width: fit-content;
 }
 
 .button:hover {
   background-color: #86beff;
 }
-
 
 .button:disabled {
   background-color: #ccc;
@@ -116,6 +122,23 @@
   font-size: 0.8rem;
 }
 
+.valid .input, .valid .select {
+  border-color: #ADD3FF;
+}
+
+.valid .input:focus + .label, .valid .select:focus + .label {
+  color: #ADD3FF;
+}
+
+.valid .label {
+  color: #ADD3FF;
+}
+
+.validMessage {
+  color: #ADD3FF;
+  font-size: 0.8rem;
+}
+
 .scrollableContainer {
   margin-bottom: 20px;
 }
@@ -139,7 +162,7 @@
   align-items: center;
   font-size: 14px;
   cursor: pointer;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .checkbox {
@@ -164,7 +187,7 @@
 .checkbox:checked + .customCheckbox::after {
   content: '';
   position: absolute;
-  top: 1.5x;
+  top: 1.5px;
   left: 4.5px;
   width: 5px;
   height: 10px;

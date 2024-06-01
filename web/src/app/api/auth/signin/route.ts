@@ -11,14 +11,15 @@ export async function POST(req: NextRequest) {
       },
       body: JSON.stringify({ username, password }),
     });
-
-    const data = await response.json();
+    
     if (response.ok) {
+      const data = await response.json();
       return NextResponse.json({ token: data.token }, { status: 200 });
     } else {
       return NextResponse.json({ message: '로그인에 실패했습니다.' }, { status: response.status });
     }
   } catch (error) {
-    return NextResponse.json({ message: '로그인에 실패했습니다.' }, { status: 500 });
+    console.log(error)
+    return NextResponse.json({ message: '서버오류가 발생했습니다.' }, { status: 500 });
   }
 }

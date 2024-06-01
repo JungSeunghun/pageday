@@ -3,146 +3,115 @@
 import React from 'react';
 import styles from '../page.module.css';
 import { PersonalInfoProps } from '../_props/props';
+import InputField from './inputField';
 
 const PersonalInfo: React.FC<PersonalInfoProps> = ({ signupFormData, handleChange, handleBlur, handleSubmit, handleKeyDown, handlePrev, handleFocus }) => {
   return (
     <div className={styles.formContainer}>
       <h2>개인 정보 입력</h2>
       <form className={styles.form} onSubmit={handleSubmit}>
-        <div className={`${styles.inputGroup} ${signupFormData.nickname.value && !signupFormData.nickname.isValid && !signupFormData.nickname.isFocused ? styles.error : ''}`}>
-          <input
-            id="nickname"
-            type="text"
-            placeholder="별명"
-            className={styles.input}
-            value={signupFormData.nickname.value}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            onFocus={handleFocus}
-          />
-          <label htmlFor="nickname" className={styles.label}>별명</label>
-          {signupFormData.nickname.value && !signupFormData.nickname.isValid && !signupFormData.nickname.isFocused && <span className={styles.errorMessage}>{signupFormData.nickname.errorMessage}</span>}
-        </div>
+        <InputField
+          id="nickname"
+          type="text"
+          placeholder="별명"
+          signupFormData={signupFormData}
+          handleChange={handleChange}
+          handleBlur={handleBlur}
+          handleFocus={handleFocus}
+          label="별명"
+        />
 
-        <div className={`${styles.inputGroup} ${signupFormData.name.value && !signupFormData.name.isValid && !signupFormData.name.isFocused ? styles.error : ''}`}>
-          <input
-            id="name"
+        <InputField
+          id="name"
+          type="text"
+          placeholder="이름"
+          signupFormData={signupFormData}
+          handleChange={handleChange}
+          handleBlur={handleBlur}
+          handleFocus={handleFocus}
+          label="이름"
+        />
+
+        <div className={styles.row}>
+          <InputField
+            id="year"
             type="text"
-            placeholder="이름"
-            className={styles.input}
-            value={signupFormData.name.value}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            onFocus={handleFocus}
+            placeholder="년도"
+            maxLength={4}
+            signupFormData={signupFormData}
+            handleChange={handleChange}
+            handleBlur={handleBlur}
+            handleFocus={handleFocus}
+            handleKeyDown={handleKeyDown}
+            label="년도"
           />
-          <label htmlFor="name" className={styles.label}>이름</label>
-          {signupFormData.name.value && !signupFormData.name.isValid && !signupFormData.name.isFocused && <span className={styles.errorMessage}>{signupFormData.name.errorMessage}</span>}
+
+          <InputField
+            id="month"
+            type="text"
+            placeholder="월"
+            maxLength={2}
+            signupFormData={signupFormData}
+            handleChange={handleChange}
+            handleBlur={handleBlur}
+            handleFocus={handleFocus}
+            handleKeyDown={handleKeyDown}
+            label="월"
+          />
+
+          <InputField
+            id="day"
+            type="text"
+            placeholder="일"
+            maxLength={2}
+            signupFormData={signupFormData}
+            handleChange={handleChange}
+            handleBlur={handleBlur}
+            handleFocus={handleFocus}
+            handleKeyDown={handleKeyDown}
+            label="일"
+          />
         </div>
 
         <div className={styles.row}>
-          <div className={`${styles.inputGroup} ${signupFormData.year.value && !signupFormData.year.isValid && !signupFormData.year.isFocused ? styles.error : ''}`}>
-            <input
-              id="year"
-              type="text"
-              placeholder="년도"
-              className={styles.input}
-              value={signupFormData.year.value}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onFocus={handleFocus}
-              onKeyDown={handleKeyDown}
-              maxLength={4}
-            />
-            <label htmlFor="year" className={styles.label}>년도</label>
-            {signupFormData.year.value && !signupFormData.year.isValid && !signupFormData.year.isFocused && <span className={styles.errorMessage}>{signupFormData.year.errorMessage}</span>}
-          </div>
+          <InputField
+            id="phone1"
+            type="text"
+            placeholder="000"
+            maxLength={3}
+            signupFormData={signupFormData}
+            handleChange={handleChange}
+            handleBlur={handleBlur}
+            handleFocus={handleFocus}
+            handleKeyDown={handleKeyDown}
+            label="전화번호"
+          />
 
-          <div className={`${styles.inputGroup} ${signupFormData.month.value && !signupFormData.month.isValid && !signupFormData.month.isFocused ? styles.error : ''}`}>
-            <input
-              id="month"
-              type="text"
-              placeholder="월"
-              className={styles.input}
-              value={signupFormData.month.value}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onFocus={handleFocus}
-              onKeyDown={handleKeyDown}
-              maxLength={2}
-            />
-            <label htmlFor="month" className={styles.label}>월</label>
-            {signupFormData.month.value && !signupFormData.month.isValid && !signupFormData.month.isFocused && <span className={styles.errorMessage}>{signupFormData.month.errorMessage}</span>}
-          </div>
+          <InputField
+            id="phone2"
+            type="text"
+            placeholder="0000"
+            maxLength={4}
+            signupFormData={signupFormData}
+            handleChange={handleChange}
+            handleBlur={handleBlur}
+            handleFocus={handleFocus}
+            handleKeyDown={handleKeyDown}
+            label=""
+          />
 
-          <div className={`${styles.inputGroup} ${signupFormData.day.value && !signupFormData.day.isValid && !signupFormData.day.isFocused ? styles.error : ''}`}>
-            <input
-              id="day"
-              type="text"
-              placeholder="일"
-              className={styles.input}
-              value={signupFormData.day.value}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onFocus={handleFocus}
-              onKeyDown={handleKeyDown}
-              maxLength={2}
-            />
-            <label htmlFor="day" className={styles.label}>일</label>
-            {signupFormData.day.value && !signupFormData.day.isValid && !signupFormData.day.isFocused && <span className={styles.errorMessage}>{signupFormData.day.errorMessage}</span>}
-          </div>
-        </div>
-
-        <div className={styles.row}>
-          <div className={`${styles.inputGroup} ${signupFormData.phone1.value && !signupFormData.phone1.isValid && !signupFormData.phone1.isFocused ? styles.error : ''}`}>
-            <input
-              id="phone1"
-              type="text"
-              placeholder="000"
-              className={styles.input}
-              value={signupFormData.phone1.value}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onFocus={handleFocus}
-              onKeyDown={handleKeyDown}
-              maxLength={3}
-            />
-            <label htmlFor="phone1" className={styles.label}>전화번호</label>
-            {signupFormData.phone1.value && !signupFormData.phone1.isValid && !signupFormData.phone1.isFocused && <span className={styles.errorMessage}>{signupFormData.phone1.errorMessage}</span>}
-          </div>
-
-          <div className={`${styles.inputGroup} ${signupFormData.phone2.value && !signupFormData.phone2.isValid && !signupFormData.phone2.isFocused ? styles.error : ''}`}>
-            <input
-              id="phone2"
-              type="text"
-              placeholder="0000"
-              className={styles.input}
-              value={signupFormData.phone2.value}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onFocus={handleFocus}
-              onKeyDown={handleKeyDown}
-              maxLength={4}
-            />
-            <label htmlFor="phone2" className={styles.label}></label>
-            {signupFormData.phone2.value && !signupFormData.phone2.isValid && !signupFormData.phone2.isFocused && <span className={styles.errorMessage}>{signupFormData.phone2.errorMessage}</span>}
-          </div>
-
-          <div className={`${styles.inputGroup} ${signupFormData.phone3.value && !signupFormData.phone3.isValid && !signupFormData.phone3.isFocused ? styles.error : ''}`}>
-            <input
-              id="phone3"
-              type="text"
-              placeholder="0000"
-              className={styles.input}
-              value={signupFormData.phone3.value}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              onFocus={handleFocus}
-              onKeyDown={handleKeyDown}
-              maxLength={4}
-            />
-            <label htmlFor="phone3" className={styles.label}></label>
-            {signupFormData.phone3.value && !signupFormData.phone3.isValid && !signupFormData.phone3.isFocused && <span className={styles.errorMessage}>{signupFormData.phone3.errorMessage}</span>}
-          </div>
+          <InputField
+            id="phone3"
+            type="text"
+            placeholder="0000"
+            maxLength={4}
+            signupFormData={signupFormData}
+            handleChange={handleChange}
+            handleBlur={handleBlur}
+            handleFocus={handleFocus}
+            handleKeyDown={handleKeyDown}
+            label=""
+          />
         </div>
 
         <div className={styles.buttonGroup}>
