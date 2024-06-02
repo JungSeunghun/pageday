@@ -1,19 +1,9 @@
-/* page.module.css */
-.goals, .controls, .report {
-  padding: 20px;
-  margin: 20px;
-  border-radius: 8px;
-  background: #f7f7f7;
-  box-shadow: 8px 8px 16px #aeaec066, -8px -8px 16px #ffffff;
-}
-
-.goals h2, .goals ul, .goals p, .controls button, .report h2, .report p, .progress span, .readingStats span {
-  color: #333;
-}
-
-.goals ul {
-  list-style: none;
-  padding: 0;
+.trigger, .goals, .controls, .report {
+  padding: 4px 16px;
+  border-radius: 5px;
+  margin-bottom: 16px;
+  background: white;
+  border: 1px solid var(--border-color);
 }
 
 .goals ul li {
@@ -25,19 +15,9 @@
 }
 
 .controls button {
-  background: #f7f7f7;
-  border: none;
-  padding: 10px 20px;
-  margin: 10px;
-  border-radius: 8px;
-  box-shadow: 8px 8px 16px #aeaec066, -8px -8px 16px #ffffff;
-  cursor: pointer;
-  font-size: 16px;
-  transition: all 0.3s ease;
 }
 
 .controls button:hover {
-  box-shadow: 2px 2px 4px #aeaec066, -2px -2px 4px #ffffff;
 }
 
 .progress {

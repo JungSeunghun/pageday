@@ -1,10 +1,40 @@
 .trigger {
-  padding: 8px 16px;
-  border-radius: 8px;
-  background: white;
-  box-shadow: 8px 8px 16px #aeaec066, -8px -8px 16px #ffffff;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  gap: 8px;
+  height: 60px;
+  margin-bottom: 24px;
 }
 
-.trigger p {
+.label {
+  font-size: 16px;
   color: #333;
+}
+
+.text {
+  font-size: 16px;
+  color: #555;
+}
+
+.input {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  flex-grow: 1;
+  box-sizing: border-box;
+}
+
+.button {
+  background-color: white;
+  color: var(--font-color);
+  border: 1px solid var(--border-color);
+  margin-left: auto;
+}
+
+.button:hover {
+  background-color: white;
 }
