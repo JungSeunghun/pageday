@@ -10,30 +10,11 @@
   gap: 1rem;
 }
 
-.input {
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.button {
-  background-color: #ADD3FF;
-  color: white;
-  padding: 0.75rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.button:hover {
-  background-color: #86beff;
-}
-
 .link {
-  color: #ADD3FF;
+  color: var(--primary-text-color);
   text-decoration: none;
 }
 
-.link:hover {
-  text-decoration: underline;
+.error {
+  color: var(--error-color);
 }

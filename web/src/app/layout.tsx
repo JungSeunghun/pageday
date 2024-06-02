@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Image from "next/image"
 import Header from "./_components/header/header";
 import Footer from "./_components/footer/footer";
 import { AuthProvider } from "./_context/AuthContext";
@@ -22,10 +23,15 @@ export default function RootLayout({
       <body className={inter.className}>
         <AuthProvider>
           <div className={"mainContainer"}>
-            <Header />
-            <main className={"main"}>
-              {children}
-            </main>
+            <div className="mainSection">
+              <Header />
+              <main className={"mainContentSection"}>
+                {children}
+              </main>
+              <div className="bottomButtonSection">
+                <Image src={"/paper_folding.svg"} alt="bottom button" width={60} height={80}/>
+              </div>
+            </div>
             <Footer/>
           </div>
         </AuthProvider>

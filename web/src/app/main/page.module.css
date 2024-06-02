@@ -1,0 +1,98 @@
+/* page.module.css */
+.goals, .controls, .report {
+  padding: 20px;
+  margin: 20px;
+  border-radius: 8px;
+  background: #f7f7f7;
+  box-shadow: 8px 8px 16px #aeaec066, -8px -8px 16px #ffffff;
+}
+
+.goals h2, .goals ul, .goals p, .controls button, .report h2, .report p, .progress span, .readingStats span {
+  color: #333;
+}
+
+.goals ul {
+  list-style: none;
+  padding: 0;
+}
+
+.goals ul li {
+  margin: 10px 0;
+}
+
+.goals ul li input {
+  margin-right: 10px;
+}
+
+.controls button {
+  background: #f7f7f7;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 8px 8px 16px #aeaec066, -8px -8px 16px #ffffff;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.controls button:hover {
+  box-shadow: 2px 2px 4px #aeaec066, -2px -2px 4px #ffffff;
+}
+
+.progress {
+  margin: 20px 0;
+}
+
+.progressBar {
+  background: #f7f7f7;
+  border-radius: 15px;
+  box-shadow: inset 7px 7px 15px #aeaec066, inset -7px -7px 15px #ffffff;
+  padding: 5px;
+}
+
+.averageProgress, .userProgress {
+  background: #76c7c0;
+  border-radius: 15px;
+  padding: 10px 0;
+  color: white;
+  text-align: center;
+}
+
+.readingStats {
+  margin: 20px 0;
+}
+
+.readingBar {
+  display: flex;
+  justify-content: space-between;
+  background: #f7f7f7;
+  border-radius: 15px;
+  box-shadow: inset 7px 7px 15px #aeaec066, inset -7px -7px 15px #ffffff;
+  padding: 10px;
+}
+
+.complete, .inProgress, .halted, .waiting {
+  padding: 10px;
+  border-radius: 15px;
+  color: white;
+  text-align: center;
+  flex-grow: 1;
+  margin: 0 5px;
+}
+
+.complete {
+  background: #4caf50;
+}
+
+.inProgress {
+  background: #ff9800;
+}
+
+.halted {
+  background: #f44336;
+}
+
+.waiting {
+  background: #9e9e9e;
+}

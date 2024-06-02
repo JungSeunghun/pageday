@@ -2,9 +2,9 @@
 
 import React, { useState } from 'react';
 import styles from './page.module.css';
-import AccountInfo from './_components/accountInfo';
-import PersonalInfo from './_components/personalInfo';
-import Agreements from './_components/agreements';
+import AccountInfo from './_pages/accountInfo';
+import PersonalInfo from './_pages/personalInfo';
+import Agreements from './_pages/agreements';
 import { useRouter } from 'next/navigation';
 import { SignupFormData, initialSignupFormData } from './_props/props';
 import useSignupForm from './_hooks/useSignupForm';
@@ -24,7 +24,7 @@ const Signup: React.FC = () => {
       if (agreements.privacy && agreements.terms) {
         setStep(2);
       }
-    } else if (step === 2 && validate()) {
+    } else if (step === 2) {
       setStep(3);
     }
   };
@@ -44,7 +44,7 @@ const Signup: React.FC = () => {
     }, {} as { [key in keyof SignupFormData]: string });
 
     if (validate()) {
-      const response = await fetch(`/api/signup`, {
+      const response = await fetch(`/api/auth/signup`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -56,9 +56,7 @@ const Signup: React.FC = () => {
         router.push("/signin");
       } else {
         const errorData = await response.json();
-        Object.keys(errorData.errors).forEach((key: string) => {
-          updateField(key as keyof SignupFormData, { isValid: false, serverErrorMessage: errorData.errors[key] });
-        });
+        console.log(errorData);
       }
     }
   };
@@ -104,7 +102,6 @@ const Signup: React.FC = () => {
           handleChange={handleChange}
           handleBlur={handleBlur}
           handleSubmit={handleSubmit}
-          handleKeyDown={(e) => e.preventDefault()}
           handlePrev={handlePrev}
           handleFocus={handleFocus}
         />

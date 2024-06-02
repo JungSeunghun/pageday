@@ -1,8 +1,8 @@
 "use client"
 
 import React from 'react';
-import styles from '../page.module.css';
-import { SignupFormData } from '../_props/props';
+import styles from './inputField.module.css';
+import { SignupFormData } from '../../_props/props';
 
 interface InputFieldProps {
   id: keyof SignupFormData;
@@ -28,28 +28,24 @@ const InputField: React.FC<InputFieldProps> = ({
   handleBlur,
   handleFocus,
   handleKeyDown,
-  label,
-  button
+  label
 }) => {
   const field = signupFormData[id];
 
   return (
     <div className={`${styles.inputGroup} ${field.value && !field.isValid && !field.isFocused ? styles.error : ''} ${field.value && field.isValid ? styles.valid : ''}`}>
-      <div className={styles.inputButtonGroup}>
-        <input
-          id={id}
-          type={type}
-          placeholder={placeholder}
-          className={styles.input}
-          value={field.value}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          onFocus={handleFocus}
-          onKeyDown={handleKeyDown}
-          maxLength={maxLength}
-          />
-        {button && <>{button}</>}
-      </div>
+      <input
+        id={id}
+        type={type}
+        placeholder={placeholder}
+        className={styles.input}
+        value={field.value}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        onFocus={handleFocus}
+        onKeyDown={handleKeyDown}
+        maxLength={maxLength}
+        />
       <label htmlFor={id} className={styles.label}>{label}</label>
       {field.value && !field.isValid && !field.isFocused && <span className={styles.errorMessage}>{field.serverErrorMessage || field.regexErrorMessage}</span>}
       {field.value && field.isValid && !field.isFocused && <span className={styles.validMessage}>{field.validMessage}</span>}

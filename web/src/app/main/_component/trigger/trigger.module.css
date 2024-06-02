@@ -1,0 +1,10 @@
+.trigger {
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 8px 8px 16px #aeaec066, -8px -8px 16px #ffffff;
+}
+
+.trigger p {
+  color: #333;
+}

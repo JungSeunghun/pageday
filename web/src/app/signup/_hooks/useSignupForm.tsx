@@ -42,7 +42,7 @@ const useSignupForm = (initialValues: SignupFormData) => {
     updateField(id as keyof SignupFormData, { value: value, serverErrorMessage: '', validMessage: '' });
   }, [updateField]);
 
-  const isAvailableField = useCallback(async (field: "username" | "email" | "nickname", value: string) => {
+  const isAvailableField = useCallback(async (field: "username" | "nickname", value: string) => {
     const response = await fetch(`/api/auth/signup/check-${field}`, {
       method: 'POST',
       headers: {
@@ -55,8 +55,8 @@ const useSignupForm = (initialValues: SignupFormData) => {
       const data = await response.json();
       updateField(field as keyof SignupFormData, {
         isValid: data.available,
-        serverErrorMessage: data.available ? '' : `이미 사용 중인 ${field === 'username' ? '아이디' : field === 'email' ? '이메일' : '별명'}입니다.`,
-        validMessage: data.available ? `사용 가능한 ${field === 'username' ? '아이디' : field === 'email' ? '이메일' : '별명'}입니다.` : ''
+        serverErrorMessage: data.available ? '' : `이미 사용 중인 ${field === 'username' ? '아이디' : '별명'}입니다.`,
+        validMessage: data.available ? `사용 가능한 ${field === 'username' ? '아이디' : '별명'}입니다.` : ''
       });
       return data.available;
     } else {
@@ -77,8 +77,8 @@ const useSignupForm = (initialValues: SignupFormData) => {
     updateField(id as keyof SignupFormData, { isFocused: false });
 
     if (isValid) {
-      if (id === "username" || id === "email" || id === "nickname") {
-        isAvailableField(id as "username" | "email" | "nickname", formData[id].value);
+      if (id === "username" || id === "nickname") {
+        isAvailableField(id as "username" | "nickname", formData[id].value);
       }
     }
   }, [isValidField, isAvailableField, updateField, formData]);

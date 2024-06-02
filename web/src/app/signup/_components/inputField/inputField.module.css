@@ -1,0 +1,53 @@
+.inputGroup {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.inputButtonGroup {
+  display: flex;
+  width: 100%;
+  gap: 16px;
+}
+
+.label {
+  position: absolute;
+  top: -12px;
+  left: 12px;
+  background: white;
+  padding: 0 4px;
+  font-size: 0.8rem;
+  pointer-events: none;
+}
+
+.input:focus + .label{
+  color: var(--primary-color);
+}
+
+.error .input, .error .select {
+  border-color: var(--error-color);
+}
+
+.error .label {
+  color: var(--error-color);
+}
+
+.errorMessage {
+  color: var(--error-color);
+  font-size: 0.8rem;
+}
+
+.valid .input {
+  border-color: var(--primary-color);
+}
+
+.valid .label {
+  color: var(--primary-color);
+}
+
+.validMessage {
+  color: var(--primary-color);
+  font-size: 0.8rem;
+}

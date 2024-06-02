@@ -11,7 +11,6 @@ export interface FormDataProperties {
 export interface SignupFormData {
   username: FormDataProperties;
   email: FormDataProperties;
-  emailCode: FormDataProperties;
   password: FormDataProperties;
   confirmPassword: FormDataProperties;
   nickname: FormDataProperties;
@@ -38,7 +37,6 @@ export const initialSignupFormData: SignupFormData = {
   name: createField('2자 이상 30자 이하의 한글 또는 영문자', /^[가-힣a-zA-Z\s]{2,30}$/),
   username: createField('4자 이상 16자 이하의 소문자 영문자와 숫자', /^(?=.*[a-z])[a-z0-9]{4,16}$/),
   email: createField('잘못된 이메일 주소입니다.', /^[^\s@]+@[^\s@]+\.[^\s@]+$/),
-  emailCode: createField('잘못된 보안코드입니다.', /^\d{6}$/),
   password: createField('8자 이상 16자 이하의 대문자, 소문자, 숫자, 특수문자 하나 이상 포함', /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,16}$/),
   confirmPassword: createField('비밀번호가 일치하지 않습니다.', /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,16}$/),
   nickname: createField('2자 이상 10자 이하의 한글, 영문자 또는 숫자', /^(?=.*[가-힣a-zA-Z])[가-힣a-zA-Z0-9]{2,10}$/),
@@ -53,7 +51,6 @@ export const initialSignupFormData: SignupFormData = {
 export interface CheckValidates {
   username: false,
   email: false,
-  emailCode: false,
   password: false,
   confirmPassword: false,
   nickname: false,
@@ -64,25 +61,6 @@ export interface CheckValidates {
   phone1: false,
   phone2: false,
   phone3: false
-}
-
-export interface AccountInfoData {
-  username: string;
-  email: string;
-  emailCode: string;
-  password: string;
-  confirmPassword: string;
-}
-
-export interface PersonalInfoData {
-  nickname: string;
-  name: string;
-  year: string;
-  month: string;
-  day: string;
-  phone1: string;
-  phone2: string;
-  phone3: string;
 }
 
 export interface AgreementsProps {
@@ -110,7 +88,6 @@ export interface PersonalInfoProps {
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
   handleSubmit: (e: React.FormEvent) => void;
-  handleKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   handlePrev: () => void;
   handleFocus: (e: React.FocusEvent<HTMLInputElement>) => void;
 }

@@ -5,6 +5,18 @@ export async function POST(req: NextRequest) {
     { message: 'Logout successful' },
     {status: 200}
   );
-  response.headers.set('Set-Cookie', 'authToken=; HttpOnly; Path=/; Max-Age=0');
+  
+  response.cookies.set('accessToken', '', {
+    httpOnly: true,
+    path: '/',
+    maxAge: 0,
+  });
+
+  response.cookies.set('refreshToken', '', {
+    httpOnly: true,
+    path: '/',
+    maxAge: 0,
+  });
+
   return response;
 }

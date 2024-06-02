@@ -1,27 +1,27 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 
-type LoginResponse = {
+type RefreshTokenResponse = {
   accessToken: string;
   refreshToken: string;
 };
 
-export async function POST(req: NextRequest) {
-  try {
-    const { username, password } = await req.json();
+export default async function POST(req: NextRequest) {
 
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/v1/api/signin`, {
+  const { refreshToken } = await req.json();
+
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/v1/api/jwt/refresh-token`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({ refreshToken }),
     });
-    
-    if (response.ok) {
-      const data : LoginResponse = await response.json();
 
-      const res = NextResponse.json({ message: 'Login successful' },{ status: 200 });
+    if (response.ok) {
+      const data: RefreshTokenResponse = await response.json();
+      const res = NextResponse.json({ message: 'Login successful' });
 
       res.cookies.set('accessToken', data.accessToken, {
         httpOnly: true,
@@ -39,9 +39,10 @@ export async function POST(req: NextRequest) {
 
       return res;
     } else {
-      return NextResponse.json({ message: '로그인에 실패했습니다.' }, { status: response.status });
+      const message = await response.json();
+      return NextResponse.json({message}, {status: response.status});
     }
   } catch (error) {
-    return NextResponse.json({ message: '서버오류가 발생했습니다.' }, { status: 500 });
+    return NextResponse.json({ message: 'Internal Server Error' },{status: 500});
   }
 }

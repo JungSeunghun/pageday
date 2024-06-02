@@ -6,18 +6,30 @@
 .formHeader {
   font-size: 1.5rem;
   margin-bottom: 32px;
-  color: #333;
   text-align: center;
-  border-bottom: 2px solid #333;
+  border-bottom: 2px solid var(--font-color);
   padding-bottom: 10px;
 }
 
+.scrollableContainer {
+  margin-bottom: 20px;
+}
+
+.scrollableContent {
+  height: 150px;
+  overflow-y: scroll;
+  border: 1px solid var(--border-color);
+  padding: 12px;
+  margin-bottom: 16px;
+  border-radius: 5px;
+}
+
 .containerHeader {
-  font-size: 18px;
-  margin-bottom: 10px;
+  font-size: 1.125rem;
+  margin-bottom: 12px;
   color: #333;
-  border-left: 4px solid #333;
-  padding-left: 10px;
+  border-left: 4px solid var(--font-color);
+  padding-left: 8px;
 }
 
 .form {
@@ -31,124 +43,14 @@
   gap: 0.5rem;
 }
 
-.inputGroup {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 1rem;
-}
-
-.inputButtonGroup {
-  display: flex;
-  width: 100%;
-  gap: 16px;
-}
-
-.label {
-  position: absolute;
-  top: -0.75rem;
-  left: 0.75rem;
-  background: white;
-  padding: 0 0.25rem;
-  font-size: 0.8rem;
-  color: #666;
-  pointer-events: none;
-}
-
-.input, .select {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.input:focus, .select:focus {
-  border-color: #ADD3FF;
-  outline: none;
-}
-
-.input:focus + .label, .select:focus + .label {
-  color: #ADD3FF;
-}
-
 .button {
-  background-color: #ADD3FF;
-  color: white;
-  padding: 0.75rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
   flex: 1;
   min-width: fit-content;
-}
-
-.button:hover {
-  background-color: #86beff;
-}
-
-.button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-.button:disabled:hover {
-  background-color: #ccc;
 }
 
 .link {
   color: #ADD3FF;
   text-decoration: none;
-}
-
-.link:hover {
-  text-decoration: underline;
-}
-
-.error .input, .error .select {
-  border-color: red;
-}
-
-.error .input:focus + .label, .error .select:focus + .label {
-  color: red;
-}
-
-.error .label {
-  color: red;
-}
-
-.errorMessage {
-  color: red;
-  font-size: 0.8rem;
-}
-
-.valid .input, .valid .select {
-  border-color: #ADD3FF;
-}
-
-.valid .input:focus + .label, .valid .select:focus + .label {
-  color: #ADD3FF;
-}
-
-.valid .label {
-  color: #ADD3FF;
-}
-
-.validMessage {
-  color: #ADD3FF;
-  font-size: 0.8rem;
-}
-
-.scrollableContainer {
-  margin-bottom: 20px;
-}
-
-.scrollableContent {
-  height: 150px;
-  overflow-y: scroll;
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-bottom: 10px;
 }
 
 .buttonGroup {
@@ -160,7 +62,7 @@
 .checkLabel {
   display: flex;
   align-items: center;
-  font-size: 14px;
+  font-size: 0.9rem;
   cursor: pointer;
   justify-content: flex-end;
 }
@@ -172,7 +74,7 @@
 .customCheckbox {
   width: 18px;
   height: 18px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
   border-radius: 3px;
   margin-left: 10px;
   position: relative;
@@ -180,8 +82,8 @@
 }
 
 .checkbox:checked + .customCheckbox {
-  background-color: #ADD3FF;
-  border-color: #ADD3FF;
+  background-color: var(--primary-button-color);
+  border: none;
 }
 
 .checkbox:checked + .customCheckbox::after {

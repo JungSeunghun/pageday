@@ -1,10 +1,26 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import { verifyAccessToken } from './app/_utils/jwtUtils';
 
-export function middleware(req: NextRequest) {
-  const token = req.cookies.get('authToken')?.value;
+export async function middleware(req: NextRequest) {
+  const { pathname } = req.nextUrl;
 
-  if (req.nextUrl.pathname === '/main' && !token) {
+  const publicPaths = ['/', '/signin', '/signup'];
+  const isPublicPath = publicPaths.some(path => pathname.startsWith(path));
+
+  if (isPublicPath) {
+    return NextResponse.next();
+  }
+
+  const accessToken = req.cookies.get('accessToken')?.value;
+
+  if (!accessToken) {
+    return NextResponse.redirect(new URL('/', req.url));
+  }
+
+  const user = await verifyAccessToken(accessToken);
+
+  if (!user) {
     return NextResponse.redirect(new URL('/', req.url));
   }
 
@@ -12,5 +28,7 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/main/:path*'],
+  matcher: [
+    '/((?!api|_next/static|_next/image|favicon.ico).*)', // Exclude static files and API routes
+  ],
 };
