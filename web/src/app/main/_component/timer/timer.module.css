@@ -1,0 +1,26 @@
+.timer {
+  padding: 4px 16px;
+  border-radius: 5px;
+  margin-bottom: 32px;
+  background: white;
+  border: 1px solid var(--border-color);
+}
+
+.timerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 16px;
+}
+
+.timerDisplay {
+  font-size: 5rem;
+  margin-bottom: 2rem;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}

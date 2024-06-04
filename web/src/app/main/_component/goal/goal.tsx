@@ -1,4 +1,5 @@
 "use client";
+
 import { useState, useEffect } from "react";
 import InputGroup from "./inputGroup";
 import styles from "./goal.module.css";
@@ -38,11 +39,13 @@ export default function Goal() {
       const todayDay = todayDate.getDate().toString().padStart(2, "0");
       const today = `${todayYear}-${todayMonth}-${todayDay}`;
 
-      const tomorrowDate = new Date(todayDate.setDate(todayDate.getDate() + 1));
+      const tomorrowDate = new Date(todayDate);
+      tomorrowDate.setDate(tomorrowDate.getDate() + 1);
       const tomorrowYear = tomorrowDate.getFullYear();
       const tomorrowMonth = (tomorrowDate.getMonth() + 1).toString().padStart(2, "0");
       const tomorrowDay = tomorrowDate.getDate().toString().padStart(2, "0");
       const tomorrow = `${tomorrowYear}-${tomorrowMonth}-${tomorrowDay}`;
+
       setTodayDate(today);
       setTomorrowDate(tomorrow);
 
@@ -195,8 +198,7 @@ export default function Goal() {
         ) : (
           <>
             <p className={styles.goalText}>
-              {tomorrowGoal.actionBeforeReading} {tomorrowGoal.readingTime}{" "}
-              {tomorrowGoal.action}
+              {tomorrowGoal.actionBeforeReading} {tomorrowGoal.readingTime} {tomorrowGoal.action}
             </p>
             <p className={styles.date}>{tomorrowDate}</p>
             <button className={styles.button} onClick={() => handleEdit("tomorrow")}>

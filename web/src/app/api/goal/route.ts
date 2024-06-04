@@ -35,7 +35,7 @@ export async function GET(req: NextRequest) {
     if (res.ok) {
       if(res.status == 200) {
         const goal : GetGoalResponse = await res.json();
-        return NextResponse.json({goal: goal}, { status: 200 });
+        return NextResponse.json(goal, { status: 200 });
       } else {
         return NextResponse.json({goal: null}, { status: 200 });
       }
