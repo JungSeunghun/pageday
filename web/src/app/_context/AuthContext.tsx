@@ -2,7 +2,6 @@
 
 import { createContext, useState, useEffect, ReactNode, useContext } from 'react';
 import { useRouter } from 'next/navigation';
-import { getCookie, setCookie, deleteCookie } from '../_utils/cookieUtils';
 
 interface AuthContextType {
   isSignin: boolean;

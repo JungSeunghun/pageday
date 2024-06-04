@@ -11,16 +11,18 @@ const Trigger: React.FC = () => {
   useEffect(() => {
     const fetchTrigger = async () => {
       try {
-        const token = localStorage.getItem('jwt'); // Assume JWT is stored in local storage
-        const response = await fetch('/api/getTrigger', {
+        const response = await fetch('/api/trigger', {
+          method: 'GET',
           headers: {
-            Authorization: `Bearer ${token}`
-          }
+            'Content-Type': 'application/json',
+          },
         });
         if (response.ok) {
-          const data = await response.json();
-          setText(data.trigger);
-          setInputValue(data.trigger);
+          if(response.status === 200) {
+            const data = await response.json();
+            setText(data.contents);
+            setInputValue(data.contents);
+          }
         } else {
           console.error('Error fetching trigger:', response.statusText);
         }
@@ -45,14 +47,12 @@ const Trigger: React.FC = () => {
     setIsEditing(false);
 
     try {
-      const token = localStorage.getItem('jwt'); // Assume JWT is stored in local storage
-      const response = await fetch('/api/saveTrigger', {
+      const response = await fetch('/api/trigger/save', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`
         },
-        body: JSON.stringify({ trigger: inputValue })
+        body: JSON.stringify({ contents: inputValue })
       });
       if (!response.ok) {
         console.error('Error saving trigger:', response.statusText);
@@ -61,6 +61,11 @@ const Trigger: React.FC = () => {
       console.error('Error saving trigger:', error);
     }
   };
+
+  const handleCancelClick = () => {
+    setText(text);
+    setIsEditing(false);
+  }
 
   return (
     <section className={styles.trigger}>
@@ -78,7 +83,8 @@ const Trigger: React.FC = () => {
             onChange={handleInputChange}
             className={styles.input}
           />
-          <button className={styles.button} onClick={handleSaveClick}>수정 완료</button>
+          <button className={styles.button} onClick={handleCancelClick}>취소</button>
+          <button className={styles.button} onClick={handleSaveClick}>완료</button>
         </>
       )}
     </section>

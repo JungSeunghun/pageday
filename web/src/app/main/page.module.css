@@ -1,23 +1,9 @@
-.trigger, .goals, .controls, .report {
+.report {
   padding: 4px 16px;
   border-radius: 5px;
   margin-bottom: 16px;
   background: white;
   border: 1px solid var(--border-color);
-}
-
-.goals ul li {
-  margin: 10px 0;
-}
-
-.goals ul li input {
-  margin-right: 10px;
-}
-
-.controls button {
-}
-
-.controls button:hover {
 }
 
 .progress {

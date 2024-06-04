@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Image from "next/image"
 import Header from "./_components/header/header";
 import Footer from "./_components/footer/footer";
 import { AuthProvider } from "./_context/AuthContext";
+import InfoButton from "./_components/infoButton/infoButton";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,9 +28,7 @@ export default function RootLayout({
               <main className={"mainContentSection"}>
                 {children}
               </main>
-              <div className="bottomButtonSection">
-                <Image src={"/paper_folding.svg"} alt="bottom button" width={60} height={80}/>
-              </div>
+              <InfoButton/>
             </div>
             <Footer/>
           </div>

@@ -76,12 +76,6 @@ button:disabled {
   padding: 32px;
 }
 
-.bottomButtonSection {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-
 /* Chrome, Whale, Edge */
 ::-webkit-scrollbar {
   width: 8px; /* 세로 스크롤바의 너비 */

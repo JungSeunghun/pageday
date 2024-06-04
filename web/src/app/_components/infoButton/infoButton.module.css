@@ -1,0 +1,17 @@
+.infoButton {
+  background-color: transparent;
+  padding: 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.infoButton:hover {
+  background-color: transparent;
+}
+
+.confetti {
+  position: fixed;
+  top: 0;
+  left: 0;
+}

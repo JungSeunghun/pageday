@@ -1,0 +1,54 @@
+.goals {
+  padding: 4px 16px;
+  border-radius: 5px;
+  margin-bottom: 32px;
+  background: white;
+  border: 1px solid var(--border-color);
+}
+
+.goalSection {
+  margin-bottom: 24px;
+}
+
+.heading {
+  font-size: 1.5em;
+  margin-bottom: 12px;
+  color: var(--font-color);
+}
+
+.goalText {
+  margin: 12px 0;
+  font-size: 1.2em;
+  color: var(--font-color);
+}
+
+.date {
+  margin: 8px 0;
+  font-size: 0.9em;
+  color: var(--font-color);
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+.button {
+  background-color: white;
+  color: var(--font-color);
+  border: 1px solid var(--border-color);
+  margin-right: 8px;
+  margin-left: auto;
+  padding: 8px 16px;
+}
+
+.button:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-text-color);
+  background-color: white;
+}
