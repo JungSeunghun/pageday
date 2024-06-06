@@ -6,7 +6,7 @@ type RefreshTokenResponse = {
   refreshToken: string;
 };
 
-export default async function POST(req: NextRequest) {
+export async function POST(req: NextRequest) {
 
   const { refreshToken } = await req.json();
 
