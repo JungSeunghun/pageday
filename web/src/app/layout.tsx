@@ -22,7 +22,7 @@ export const metadata: Metadata = {
       {
         url: "https://pageday.today/og/image.png",
         width: 800,
-        height: 600,
+        height: 400,
         alt: "페이지데이 이미지",
       },
     ],
