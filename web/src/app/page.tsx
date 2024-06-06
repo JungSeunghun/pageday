@@ -19,23 +19,23 @@ const Home: React.FC = () => {
         </p>
       </header>
       <div className={styles.section}>
-        <Link href="https://docs.google.com/forms/d/e/1FAIpQLSckBwRbjkkpR8bhT3neOxhyUxyBTL-qWSJiIYoABtJFZ1shoQ/viewform">
+        <Link href="https://docs.google.com/forms/d/e/1FAIpQLSckBwRbjkkpR8bhT3neOxhyUxyBTL-qWSJiIYoABtJFZ1shoQ/viewform" target="_blank">
           <Image src="/main/main.webp" alt="main" width={400} height={400} className={styles.image} />
         </Link>
       </div>
       <div className={styles.iconSection}>
         <div className={styles.icon}>
-          <Link href="https://www.instagram.com/pageday.page/">
+          <Link href="https://www.instagram.com/pageday.page/" target="_blank">
             <Image src="/icon/instagram.svg" alt="instagram" width={32} height={32} />
           </Link>
         </div>
         <div className={styles.icon}>
-          <Link href="https://open.kakao.com/o/g9XX3Bmg">
+          <Link href="https://open.kakao.com/o/g9XX3Bmg" target="_blank">
             <Image src="/icon/kakao.svg" alt="kakao" width={32} height={32} />
           </Link>
         </div>
         <div className={styles.icon}>
-          <Link href="https://pageday.tistory.com/">
+          <Link href="https://pageday.tistory.com/" target="_blank">
             <Image src="/icon/tistory.svg" alt="tistory" width={32} height={32} />
           </Link>
         </div>
