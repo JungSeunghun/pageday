@@ -18,8 +18,8 @@ export default function Header() {
           <a href="#" onClick={signout}>로그아웃</a>
         ) : (
           <>
-            <Link href="/signin">로그인</Link>
-            <Link href="/signup">회원가입</Link>
+            {/* <Link href="/signin">로그인</Link> */}
+            {/* <Link href="/signup">회원가입</Link> */}
           </>
         )}
       </nav>

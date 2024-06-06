@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import InputGroup from "./inputGroup";
+import InputGroup from "../inputGroup/inputGroup";
 import styles from "./goal.module.css";
 
 interface Goal {

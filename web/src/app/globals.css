@@ -7,12 +7,18 @@
   --error-color: red;
   --background-color: #fff;
   --font-color: #3a3a3a;
+  --font-grey-color: #7c7c7c;
   --shadow-color: #aeaec066;
   --border-color: #d9d9d9;
 }
 
 * {
   box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  padding: 0;
+  margin: 0;
 }
 
 html, body {

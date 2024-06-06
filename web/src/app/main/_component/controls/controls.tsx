@@ -1,11 +1,15 @@
-import styles from './controls.module.css'
+import styles from './controls.module.css';
 
-export default function Controls() {
+interface ControlsProps {
+  setActiveComponent: (component: string) => void;
+}
+
+export default function Controls({ setActiveComponent }: ControlsProps) {
   return (
     <section className={styles.controls}>
-      <button>독서 시작하기<br/>(스톱워치)</button>
-      <button>독서 알림 설정</button>
-      <button>독서 기록 하기</button>
+      <button onClick={() => setActiveComponent('goal')}>목표 설정</button>
+      <button onClick={() => setActiveComponent('timer')}>스톱워치</button>
+      <button onClick={() => setActiveComponent('memo')}>독서 기록</button>
     </section>
   );
 }

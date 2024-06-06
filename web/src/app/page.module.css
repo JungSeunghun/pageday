@@ -1,16 +1,67 @@
 .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
 }
 
-.button {
-  background-color: #ADD3FF;
-  color: white;
-  padding: 1rem 2rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+.header {
+  text-align: center;
+  margin-bottom: 32px;
 }
 
-.button:hover {
-  background-color: #ADD3FF;
+.subTitle {
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+}
+
+.highlight {
+  font-weight: bold;
+  color: var(--primary-text-color);
+}
+
+.title {
+  font-size: 2.25rem;
+  margin-bottom: 16px;
+}
+
+.description {
+  font-size: 1rem;
+  color: var(--font-grey-color);
+}
+
+.link {
+  color: var(--font-color);
+  text-decoration: none;
+  margin: 10px 0;
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 4px 4px 8px var(--shadow-color), -4px -4px 8px var(--shadow-color);
+  transition: all 0.3s ease;
+}
+
+.link:hover {
+  box-shadow: 6px 6px 12px var(--shadow-color), -6px -6px 12px var(--shadow-color);
+}
+
+.section {
+  margin-bottom: 48px;
+}
+
+.iconSection {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+}
+
+.image {
+  border-radius: 16px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 4px 4px 8px var(--shadow-color), -4px -4px 8px var(--shadow-color);
+}
+
+.image:hover {
+  transform: scale(1.01);
+  box-shadow: 8px 8px 16px var(--shadow-color), -8px -8px 16px var(--shadow-color);
 }

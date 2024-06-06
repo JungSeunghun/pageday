@@ -1,0 +1,16 @@
+.quill .ql-toolbar {
+  border-top-left-radius: 5px !important;
+  border-top-right-radius: 5px !important;
+}
+
+.quill .ql-container {
+  max-height: 300px !important;
+  height: 300px !important;
+  border-bottom-left-radius: 5px !important;
+  border-bottom-right-radius: 5px !important;
+  overflow: hidden !important;
+}
+
+.quill .ql-editor.ql-blank::before {
+  font-style: normal !important;
+}
