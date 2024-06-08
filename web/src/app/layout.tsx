@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "./_components/header/header";
-import Footer from "./_components/footer/footer";
 import { AuthProvider } from "./_context/AuthContext";
-import InfoButton from "./_components/infoButton/infoButton";
+import MainLeftSection from "./_components/mainLeftSection/mainLeftSection";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -43,14 +41,12 @@ export default function RootLayout({
       <body className={inter.className}>
         <AuthProvider>
           <div className={"mainContainer"}>
-            <div className="mainSection">
-              <Header />
-              <main className={"mainContentSection"}>
-                {children}
-              </main>
-              <InfoButton/>
+            <div className={"mainLeftSection"}>
+              <MainLeftSection />
             </div>
-            <Footer/>
+            <div className="{mainRightSection}">
+              {children}
+            </div>
           </div>
         </AuthProvider>
       </body>

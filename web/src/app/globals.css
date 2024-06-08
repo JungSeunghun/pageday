@@ -66,22 +66,19 @@ button:disabled {
 
 .mainContainer {
   display: flex;
-  flex-direction: column;
-  background-color: var(--background-color);
-  max-width: 480px;
-  margin: 0 auto;
-  box-shadow: 16px 0px 16px var(--shadow-color), -16px 0px 16px var(--shadow-color);
+  height: 100dvh;
 }
 
-.mainSection {
-  position: relative;
-  min-height: 100dvh;
+.mainLeftSection {
+  background-color: #f3f3f3;
+  flex: 1;
 }
 
-.mainContentSection {
-  padding: 32px;
+.mainRightSection {
+  max-width: 560px;
+  flex-shrink: 0;
 }
-
+  
 /* Chrome, Whale, Edge */
 ::-webkit-scrollbar {
   width: 8px; /* 세로 스크롤바의 너비 */

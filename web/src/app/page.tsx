@@ -1,9 +1,18 @@
-import React from 'react';
+"use client"
+
 import styles from './page.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 
 const Home: React.FC = () => {
+  const handleKakaoLogin = () => {
+    const popup = window.open(
+      '/api/auth/kakao',
+      'kakaoLogin',
+      'width=600,height=800'
+    );
+  };
+  
   return (
     <div className={styles.content}>
        <header className={styles.header}>
@@ -22,6 +31,9 @@ const Home: React.FC = () => {
         <Link href="https://docs.google.com/forms/d/e/1FAIpQLSckBwRbjkkpR8bhT3neOxhyUxyBTL-qWSJiIYoABtJFZ1shoQ/viewform" target="_blank">
           <Image src="/main/main.webp" alt="main" width={400} height={400} className={styles.image} />
         </Link>
+      </div>
+      <div className={styles.loginSection}>
+        <button onClick={handleKakaoLogin}>카카오</button>
       </div>
       <div className={styles.iconSection}>
         <div className={styles.icon}>
