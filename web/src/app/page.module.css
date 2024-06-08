@@ -57,7 +57,7 @@
 }
 
 .image {
-  width: 100% !important;
+  width: 95% !important;
   height: auto !important;
   border-radius: 16px;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
