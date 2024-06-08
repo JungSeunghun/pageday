@@ -6,7 +6,7 @@
   --primary-gradient-color: linear-gradient(135deg, #65BCEB 0%, #348CCB 100%);
   --error-color: red;
   --background-color: #fff;
-  --font-color: #3a3a3a;
+  --font-color: #3B3B3B;
   --font-grey-color: #7c7c7c;
   --shadow-color: #aeaec066;
   --border-color: #d9d9d9;
@@ -16,20 +16,30 @@
   box-sizing: border-box;
 }
 
-h1, h2, h3, h4, h5, h6, p {
-  padding: 0;
-  margin: 0;
-}
-
 html, body {
   margin: 0;
   background-color: var(--background-color);
   color: var(--font-color);
 }
-
+  
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+  
 ul, ol {
   list-style: none;
   padding: 0;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration-line: none;
+  color: var(--font-color);
 }
 
 input, select {
@@ -72,6 +82,9 @@ button:disabled {
 .mainLeftSection {
   background-color: #f3f3f3;
   flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .mainRightSection {
