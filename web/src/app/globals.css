@@ -1,5 +1,5 @@
 :root {
-  --primary-color: #ADD3FF;
+  --primary-color: #51A8DD;
   --primary-text-color: #348CCB;
   --primary-button-color: #65BCEB;
   --primary-button-hover-color: #348CCB;
@@ -10,6 +10,8 @@
   --font-grey-color: #7c7c7c;
   --shadow-color: #aeaec066;
   --border-color: #d9d9d9;
+  --gray: #8E8E8E;
+  --hint-gray: #EBEBEB;
 }
 
 * {
@@ -23,7 +25,7 @@ html, body {
 }
   
 body {
-  font-family: 'Noto Sans', sans-serif;
+  font-family: Noto_Sans_KR;
 }
   
 ul, ol {
@@ -44,34 +46,39 @@ a {
 
 input, select {
   width: 100%;
-  padding: 0.75rem;
-  border: 1px solid var(--border-color);
-  border-radius: 5px;
-  box-shadow: 0 0 0 9999px #fff inset;
+  padding: 8px;
+  font-size: 1.125rem;
+  margin: 0;
+  border-style: none;
+  border-bottom: 1px solid var(--border-color);
+  outline: none;
+  text-align: center;
 }
 
-input:focus, select:focus {
-  border-color: var(--primary-color);
+input::placeholder {
+  color: var(--hint-gray);
+}
+
+textarea {
+  resize: none;
+  font-size: 1.125rem;
+  font-family: Noto_Sans_KR;
+  border-radius: 10px;
+  border: 1px solid var(--gray);
+  padding: 16px;
   outline: none;
 }
 
+textarea::placeholder {
+  color: var(--hint-gray);
+}
+  
 button {
-  background-color: var(--primary-button-color);
-  color: white;
-  padding: 0.75rem;
+  padding: 0;
+  margin: 0;
   border: none;
-  border-radius: 5px;
+  background-color: #fff;
   cursor: pointer;
-  min-width: fit-content;
-}
-
-button:hover {
-  background-color: var(--primary-button-hover-color);
-}
-
-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
 }
 
 .mainContainer {
@@ -81,17 +88,29 @@ button:disabled {
 
 .mainLeftSection {
   background-color: #f3f3f3;
+  padding: 0 25px;
   flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .mainRightSection {
   max-width: 560px;
+  width: 100%;
+  padding: 0 25px;
   flex-shrink: 0;
 }
   
+
+@media (max-width: 768px) {
+  .mainLeftSection {
+      display: none;
+  }
+
+  .mainRightSection {
+      flex: 1;
+      max-width: none;
+  }
+}
+
 /* Chrome, Whale, Edge */
 ::-webkit-scrollbar {
   width: 8px; /* 세로 스크롤바의 너비 */
@@ -99,7 +118,7 @@ button:disabled {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #888; /* 스크롤바의 색상 */
+  background-color: var(--gray); /* 스크롤바의 색상 */
   border-radius: 10px; /* 스크롤바의 둥근 모서리 */
 }
 

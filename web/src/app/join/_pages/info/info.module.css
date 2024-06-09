@@ -1,0 +1,82 @@
+.container {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.message {
+  text-align: center;
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+
+.description {
+  font-size: 1.125rem;
+  margin-bottom: 69px;
+}
+
+.inputContainer {
+  max-width: 416px;
+  width: 100%;
+  margin-bottom: 79px;
+}
+
+.inputRow {
+  display: flex;
+  justify-content: space-between;
+  }
+  
+.inputRow:not(:last-child) {
+  margin-bottom: 36px;
+}
+
+.inputLabel {
+  font-size: 1.125rem;
+  line-height: 2.5rem;
+  font-weight: bold;
+}
+
+.input {
+  text-align: center;
+  outline: none;
+  max-width: 200px;
+  width: 100%;
+}
+
+.inputDescription {
+  font-size: 1.125rem;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.button {
+  background-color: #ADD3FF;
+  color: #EBEBEB;
+  font-size: 1.125rem;
+  font-weight: bold;
+  border-radius: 10px;
+  height: 40px;
+  max-width: 368px;
+  width: 100%;
+}
+
+.skipButtonContainer {
+  width: 100%;
+  text-align: center;
+}
+
+.skipButton {
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: var(--gray);
+  border-bottom: 1px solid var(--gray);
+}

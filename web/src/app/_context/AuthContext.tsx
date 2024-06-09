@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
           setUser(data.user);
           setIsSignin(true);
         } else {
-          router.push('/');
+          // router.push('/');
         }
       } catch (error) {
         console.error('Failed to validate token', error);

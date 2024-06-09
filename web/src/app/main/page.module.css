@@ -1,64 +1,101 @@
-.report {
-  padding: 4px 16px;
-  border-radius: 5px;
-  margin-bottom: 16px;
-  background: white;
-  border: 1px solid var(--border-color);
+/* components/Attendance.module.css */
+.container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
 }
 
-.progress {
-  margin: 20px 0;
-}
-
-.progressBar {
-  background: #f7f7f7;
-  border-radius: 15px;
-  box-shadow: inset 7px 7px 15px #aeaec066, inset -7px -7px 15px #ffffff;
-  padding: 5px;
-}
-
-.averageProgress, .userProgress {
-  background: #76c7c0;
-  border-radius: 15px;
-  padding: 10px 0;
-  color: white;
-  text-align: center;
-}
-
-.readingStats {
-  margin: 20px 0;
-}
-
-.readingBar {
+.header {
   display: flex;
   justify-content: space-between;
-  background: #f7f7f7;
-  border-radius: 15px;
-  box-shadow: inset 7px 7px 15px #aeaec066, inset -7px -7px 15px #ffffff;
-  padding: 10px;
+  align-items: center;
 }
 
-.complete, .inProgress, .halted, .waiting {
-  padding: 10px;
-  border-radius: 15px;
-  color: white;
+.logo {
+  width: 100px;
+}
+
+.userInfo {
   text-align: center;
-  flex-grow: 1;
+}
+
+.username {
+  margin: 0;
+}
+
+.date {
+  margin: 0;
+}
+
+.icons {
+  display: flex;
+}
+
+.attendance {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.days {
+  display: flex;
+}
+
+.day {
+  padding: 10px;
   margin: 0 5px;
+  background-color: lightgrey;
 }
 
-.complete {
-  background: #4caf50;
+.active {
+  background-color: skyblue;
 }
 
-.inProgress {
-  background: #ff9800;
+.viewAll {
+  background: none;
+  border: none;
+  color: blue;
+  cursor: pointer;
 }
 
-.halted {
-  background: #f44336;
+.goals {
+  margin: 20px 0;
 }
 
-.waiting {
-  background: #9e9e9e;
+.goal {
+  border: 1px solid lightgrey;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.recentRecords {
+  margin: 20px 0;
+}
+
+.record {
+  border: 1px solid lightgrey;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.recordHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  border-top: 1px solid lightgrey;
+  padding: 10px 0;
+}
+
+.footerButton {
+  background: none;
+  border: none;
+  cursor: pointer;
 }

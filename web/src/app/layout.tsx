@@ -25,7 +25,6 @@ export const metadata: Metadata = {
   },
 };
 
-
 const notoSansKR = Noto_Sans_KR({
   weight: ["400", "500", "600", "700", "800", "900"],
   subsets: ['latin', 'latin-ext'],
@@ -48,7 +47,7 @@ export default function RootLayout({
             <div className={"mainLeftSection"}>
               <MainLeftSection />
             </div>
-            <div className="{mainRightSection}">
+            <div className={"mainRightSection"}>
               {children}
             </div>
           </div>

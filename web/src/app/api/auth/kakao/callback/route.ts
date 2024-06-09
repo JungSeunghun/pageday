@@ -21,7 +21,9 @@ export async function GET(req: NextRequest) {
 
     const tokenData = await tokenResponse.json();
     const accessToken = tokenData.access_token;
+    const expiresIn = tokenData.expires_in;
     const refreshToken = tokenData.refresh_token;
+    const refreshTokenExpiresIn = tokenData.refresh_token_expires_in;
 
     const userResponse = await fetch('https://kapi.kakao.com/v2/user/me', {
       headers: {
@@ -30,17 +32,34 @@ export async function GET(req: NextRequest) {
     });
 
     const user = await userResponse.json();
-    
-    // 필요한 사용자 정보를 추출
-    const userInfo = {
-      id: user.id,
-    };
 
-    return NextResponse.redirect(`/signup?userId=${user.id}`);
-    return NextResponse.json({ status: 200 });
+    const redirect = new URL("/join", req.url)
+
+    const res = NextResponse.redirect(redirect);
+    
+    res.cookies.set("puid", user.id, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      maxAge: 60*60,
+      path: '/',
+    });
+
+    res.cookies.set("patk", accessToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      maxAge: expiresIn,
+      path: '/',
+    });
+    
+    res.cookies.set('prtk', refreshToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      maxAge: refreshTokenExpiresIn,
+      path: '/',
+    });
+
+    return res;
   } catch (error) {
-    console.error(error);
-    // return NextResponse.redirect('/error');
-    return NextResponse.json({ status: 500 });
+    return NextResponse.json({error: error},{ status: 500 });
   }
 }

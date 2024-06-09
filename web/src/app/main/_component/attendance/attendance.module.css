@@ -1,0 +1,40 @@
+.attendance {
+  margin-bottom: 24px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.attendanceTitle {
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+
+.viewAll {
+  font-size: 0.625rem;
+  font-weight: bold;
+}
+
+.dayContainer {
+  display: flex;
+  gap: 5px;
+}
+
+.day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: var(--hint-gray);
+  width: 69px;
+  height: 69px;
+}
+
+.active {
+  background-color: var(--primary-color);
+}
