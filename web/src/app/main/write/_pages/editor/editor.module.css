@@ -37,6 +37,8 @@
 .infoSection {
   display: flex;
   align-items: center;
+  width: 100%;
+  margin-bottom: 32px;
 }
 
 .bookImage {
@@ -44,6 +46,7 @@
   height: 128px;
   border-radius: 10px;
   background-color: var(--hint-gray);
+  margin-right: 16px;
 }
 
 .bookInfo {
@@ -51,9 +54,15 @@
   flex-direction: column;
 }
 
+.timeInfo {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
 .time {
   font-size: 0.75rem;
-  color: var(--hint-gray);
+  color: var(--gray);
   margin-bottom: 6px;
 }
 
@@ -65,5 +74,95 @@
 
 .authorName {
   font-size: 0.625rem;
-
 }
+
+.editor {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.imageSection {
+  display: flex;
+  margin-bottom: 48px;
+}
+
+.addImage {
+  margin-right: 16px;
+}
+
+.addImageButton {
+  height: 72px;
+  width: 72px;
+  background-color: var(--hint-gray);
+  border-radius: 10px;
+}
+
+.imageList {
+  display: flex;
+  gap: 16px;
+}
+
+.image {
+  position: relative;
+  height: 72px;
+  width: 72px;
+  background-color: #d9d9d9;
+  border-radius: 10px;
+}
+
+.deleteFile {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+}
+
+.recordSection {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 88px;
+}
+
+.recordTitle {
+  font-weight: bold;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 16px;
+}
+
+.disableButton {
+  width: 92px;
+  height: 32px;
+  border-radius: 10px;
+  background-color: #d9d9d9;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.enableButton {
+  width: 92px;
+  height: 32px;
+  border-radius: 10px;
+  background-color: var(--primary-color);
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.finishButtonGroup {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.finishButton {
+  width: 100%;
+  max-width: 368px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  font-weight: bold;
+}
+

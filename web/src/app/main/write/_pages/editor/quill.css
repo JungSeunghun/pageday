@@ -1,0 +1,9 @@
+.ql-toolbar {
+  border: none !important;
+}
+
+.ql-container {
+  border: none !important;
+  border-bottom: 1px solid var(--hint-gray) !important;
+  height: 257px;
+}

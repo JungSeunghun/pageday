@@ -4,6 +4,7 @@ import styles from './editor.module.css'
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import 'react-quill/dist/quill.snow.css';
+import './quill.css';
 
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
@@ -26,7 +27,7 @@ export default function Editor({handleBack}:{handleBack: () => void}) {
 
           </div>
           <div className={styles.bookInfo}>
-            <p>
+            <p className={styles.timeInfo}>
               <i>
                 <Image src={"/icon/time.svg"} width={16} height={16} alt="시간 아이콘"/>
               </i>
@@ -43,7 +44,9 @@ export default function Editor({handleBack}:{handleBack: () => void}) {
             theme="snow"
             modules={{
               toolbar: [
+                [{ 'header': [1, 2, false] }],
                 ['bold', 'italic', 'underline', 'strike'],
+                ['image'],
                 [{ 'align': [] }],
                 [{ 'color': [] }],
               ],
@@ -55,36 +58,46 @@ export default function Editor({handleBack}:{handleBack: () => void}) {
         <div className={styles.imageSection}>
           <div className={styles.addImage}>
             <button className={styles.addImageButton}>
-              
+              <Image src={"/icon/plus.svg"} width={32} height={32} alt="추가 버튼" />
             </button>
           </div>
           <ul className={styles.imageList}>
             <li>
-              <div className={styles.image}></div>
+              <div className={styles.image}>
+                <Image className={styles.deleteFile} src={"/icon/deleteFile.svg"} width={16} height={16} alt='파일 삭제 버튼'/>
+              </div>
             </li>
             <li>
-              <div className={styles.image}></div>
+              <div className={styles.image}>
+                <Image className={styles.deleteFile} src={"/icon/deleteFile.svg"} width={16} height={16} alt='파일 삭제 버튼'/>
+              </div>
             </li>
             <li>
-              <div className={styles.image}></div>
+              <div className={styles.image}>
+                <Image className={styles.deleteFile} src={"/icon/deleteFile.svg"} width={16} height={16} alt='파일 삭제 버튼'/>
+              </div>
             </li>
             <li>
-              <div className={styles.image}></div>
+              <div className={styles.image}>
+                <Image className={styles.deleteFile} src={"/icon/deleteFile.svg"} width={16} height={16} alt='파일 삭제 버튼'/>
+              </div>
             </li>
             <li>
-              <div className={styles.image}></div>
+              <div className={styles.image}>
+                <Image className={styles.deleteFile} src={"/icon/deleteFile.svg"} width={16} height={16} alt='파일 삭제 버튼'/>
+              </div>
             </li>
           </ul>
         </div>
         <div className={styles.recordSection}>
           <div className={styles.recordTitle}>기록 공개여부</div>
           <div className={styles.buttonGroup}>
-            <button className={styles.button}>비공개</button>
-            <button className={styles.button}>공개</button>
+            <button className={styles.disableButton}>비공개</button>
+            <button className={styles.enableButton}>공개</button>
           </div>
         </div>
-        <div className={styles.buttonGroup}>
-          <button className={styles.button}>완료</button>
+        <div className={styles.finishButtonGroup}>
+          <button className={styles.finishButton}>완료</button>
         </div>
       </div>
     </>
