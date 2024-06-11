@@ -1,54 +1,65 @@
-.goals {
-  padding: 4px 16px;
-  border-radius: 5px;
-  margin-bottom: 32px;
-  background: white;
-  border: 1px solid var(--border-color);
+.title {
+  font-size: 1.125rem;
+  margin-bottom: 20px;
 }
 
-.goalSection {
+.goalContainer {
   margin-bottom: 24px;
 }
 
-.heading {
-  font-size: 1.5em;
-  margin-bottom: 12px;
-  color: var(--font-color);
+.goal {
+  border: 1px solid var(--primary-color);
+  display: flex;
+  width: 100%;
+  height: 108px;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 10px;
+}
+  
+.goal:not(:last-child) {
+  margin-bottom: 16px;
+}
+ 
+.dayContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.goalText {
-  margin: 12px 0;
-  font-size: 1.2em;
-  color: var(--font-color);
+.dayName {
+  font-size: 0.625rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 8px;
 }
 
-.date {
-  margin: 8px 0;
-  font-size: 0.9em;
-  color: var(--font-color);
+.day {
+  font-size: 0.625rem;
+  font-weight: bold;
+}
+
+.inputGroupSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputGroup {
+  display: flex;
+  gap: 8px;
+  justify-content: left;
+  align-items: center;
 }
 
 .input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1em;
-  box-sizing: border-box;
+  font-size: 0.875rem;
+  width: 150px;
+  font-weight: bold;
 }
 
-.button {
-  background-color: white;
-  color: var(--font-color);
-  border: 1px solid var(--border-color);
-  margin-right: 8px;
-  margin-left: auto;
-  padding: 8px 16px;
-}
-
-.button:hover {
-  border-color: var(--primary-color);
-  color: var(--primary-text-color);
-  background-color: white;
+.description {
+  font-size: 0.875rem;
+  min-width: fit-content;
+  line-height: 1.75rem;
 }

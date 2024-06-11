@@ -83,7 +83,7 @@ button {
 
 .mainContainer {
   display: flex;
-  height: 100dvh;
+  max-height: 100dvh;
 }
 
 .mainLeftSection {
@@ -95,10 +95,8 @@ button {
 .mainRightSection {
   max-width: 560px;
   width: 100%;
-  padding: 0 25px;
   flex-shrink: 0;
-}
-  
+}  
 
 @media (max-width: 768px) {
   .mainLeftSection {

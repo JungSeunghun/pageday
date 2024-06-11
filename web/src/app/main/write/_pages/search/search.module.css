@@ -1,0 +1,128 @@
+.container {
+  position: relative;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 25px;
+}
+
+.header {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  padding: 0 20px;
+}
+
+.headerSection {
+  position: relative;
+  width: 100%;
+  height: 56px;
+  padding: 0 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerTitle {
+  font-size: 1.125rem;
+}
+
+.closeButton {
+  position: absolute;
+  right: 0;
+}
+
+.bookSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 468px;
+}
+
+.bookSearchButton {
+  width: 96px;
+  height: 128px;
+  border-radius: 10px;
+  background-color: var(--hint-gray);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.description {
+  font-size: 0.875rem;
+  font-weight: bold;
+  margin-bottom: 9px;
+}
+
+.bookTitle {
+  font-size: 0.625rem;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 36px;
+  width: 100%;
+}
+
+.button {
+  border: 1px solid var(--primary-color);
+  width: 72px;
+  height: 24px;
+  color: var(--primary-color);
+  border-radius: 10px;
+}
+
+.inputContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 104px;
+}
+
+.clockIcon {
+  margin-right: 8px;
+}
+
+.inputGroup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.inputGroup:not(:first-child) {
+  margin-right: 12px;
+}
+
+.input {
+  width: 48px;
+  font-size: 0.75rem;
+  padding: 4px;
+}
+
+.text {
+  font-size: 0.75rem;
+  line-height: 1.5rem;
+}
+
+.nextButton {
+  max-width: 468px;
+  width: 100%;
+  height: 40px;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: #ffffff;
+}

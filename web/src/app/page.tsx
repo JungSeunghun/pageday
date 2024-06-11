@@ -9,14 +9,7 @@ const Home: React.FC = () => {
 
   const handleKakaoLogin = () => {
     router.push("/api/auth/kakao");
-    // const popup = window.open(
-    //   '/api/auth/kakao',
-    //   'kakaoLogin',
-    //   'width=600,height=800'
-    // );
   };
-  
-
   
   return (
     <div className={styles.container}>

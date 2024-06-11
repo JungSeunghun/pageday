@@ -1,0 +1,69 @@
+.container {
+  position: relative;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 25px;
+}
+
+.header {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  padding: 0 20px;
+}
+
+.headerSection {
+  position: relative;
+  width: 100%;
+  height: 56px;
+  padding: 0 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerTitle {
+  font-size: 1.125rem;
+}
+
+.backButton {
+  position: absolute;
+  left: 0;
+}
+
+.infoSection {
+  display: flex;
+  align-items: center;
+}
+
+.bookImage {
+  width: 96px;
+  height: 128px;
+  border-radius: 10px;
+  background-color: var(--hint-gray);
+}
+
+.bookInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.time {
+  font-size: 0.75rem;
+  color: var(--hint-gray);
+  margin-bottom: 6px;
+}
+
+.bookName {
+  font-size: 0.875rem;
+  font-weight: bold;
+  margin-bottom: 9px;
+}
+
+.authorName {
+  font-size: 0.625rem;
+
+}
