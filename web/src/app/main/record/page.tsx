@@ -1,106 +1,114 @@
+"use client"
+
+import { useRef, MouseEvent, WheelEvent } from 'react';
+
 import Header from './_components/header/header';
+import PopularBooks from './_components/popularBooks/popularBooks';
+import PopularPosts from './_components/popularPosts/popularPosts';
 import styles from './page.module.css';
 
 export default function Record() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const velocity = useRef<number>(0);
+  const lastY = useRef<number | null>(null);
+  const animationFrameId = useRef<number | null>(null);
+
+  const handleMouseDown = (e: MouseEvent<HTMLDivElement>) => {
+    const container = containerRef.current;
+    if (container) {
+      container.dataset.isDragging = 'true';
+      container.dataset.startY = String(e.pageY - container.offsetTop);
+      container.dataset.scrollTop = String(container.scrollTop);
+      velocity.current = 0;
+      lastY.current = e.pageY;
+      if (animationFrameId.current !== null) {
+        cancelAnimationFrame(animationFrameId.current);
+        animationFrameId.current = null;
+      }
+    }
+  };
+
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+    const container = containerRef.current;
+    if (container && container.dataset.isDragging === 'true') {
+      e.preventDefault();
+      const startY = Number(container.dataset.startY);
+      const scrollTop = Number(container.dataset.scrollTop);
+      const y = e.pageY - container.offsetTop;
+      const walk = (startY - y);
+      container.scrollTop = scrollTop + walk;
+      if (lastY.current !== null) {
+        velocity.current = lastY.current - y;
+      }
+      lastY.current = e.pageY;
+    }
+  };
+
+  const handleMouseUp = () => {
+    const container = containerRef.current;
+    if (container) {
+      container.dataset.isDragging = 'false';
+      if (velocity.current !== 0) {
+        startDeceleration();
+      }
+    }
+  };
+
+  const handleMouseLeave = () => {
+    const container = containerRef.current;
+    if (container && container.dataset.isDragging === 'true') {
+      container.dataset.isDragging = 'false';
+      if (velocity.current !== 0) {
+        startDeceleration();
+      }
+    }
+  };
+
+  const handleWheel = (e: WheelEvent<HTMLDivElement>) => {
+    const container = containerRef.current;
+    if (container) {
+      velocity.current += e.deltaY * 0.2;
+      if (animationFrameId.current === null) {
+        startDeceleration();
+      }
+    }
+  };
+
+  const startDeceleration = () => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const step = () => {
+      container.scrollTop += velocity.current;
+      velocity.current *= 0.95;
+
+      if (Math.abs(velocity.current) > 0.5) {
+        animationFrameId.current = requestAnimationFrame(step);
+      } else {
+        velocity.current = 0;
+        animationFrameId.current = null;
+      }
+    };
+
+    if (animationFrameId.current !== null) {
+      cancelAnimationFrame(animationFrameId.current);
+    }
+    animationFrameId.current = requestAnimationFrame(step);
+  };
+
   return (
-    <div className={styles.container}>
-      <Header/>
-      <div className={styles.popularBooks}>
-        <div className={styles.sectionHeader}>
-          <h2 className={styles.sectionTitle}>인기도서</h2>
-          <span className={styles.sectionSubtitle}>최근 독서 기록이 많아진 책들이에요!</span>
-        </div>
-        <ul className={styles.bookList}>
-          <li className={styles.bookItem}>
-            <div className={styles.bookThumbnail}></div>
-            <div className={styles.bookTitle}>책 제목</div>
-            <div className={styles.bookAuthor}>저자명</div>
-          </li>
-          <li className={styles.bookItem}>
-            <div className={styles.bookThumbnail}></div>
-            <div className={styles.bookTitle}>책 제목</div>
-            <div className={styles.bookAuthor}>저자명</div>
-          </li>
-          <li className={styles.bookItem}>
-            <div className={styles.bookThumbnail}></div>
-            <div className={styles.bookTitle}>책 제목</div>
-            <div className={styles.bookAuthor}>저자명</div>
-          </li>
-          <li className={styles.bookItem}>
-            <div className={styles.bookThumbnail}></div>
-            <div className={styles.bookTitle}>책 제목</div>
-            <div className={styles.bookAuthor}>저자명</div>
-          </li>
-          <li className={styles.bookItem}>
-            <div className={styles.bookThumbnail}></div>
-            <div className={styles.bookTitle}>책 제목</div>
-            <div className={styles.bookAuthor}>저자명</div>
-          </li>
-        </ul>
-      </div>
-      <div className={styles.popularPosts}>
-        <div className={styles.sectionHeader}>
-          <h2 className={styles.sectionTitle}>인기글</h2>
-          <span className={styles.sectionDate}>24.06.14</span>
-        </div>
-        <ul className={styles.postList}>
-          <li className={styles.postItem}>
-            <div className={styles.record}>
-              <div className={styles.thumbnail}></div>
-              <div className={styles.info}>
-                <h3 className={styles.username}>정승훈</h3>
-                <p className={styles.bookName}>책 제목</p>
-                <p className={styles.content}>용의자 X의 어쩌구를 읽고 누군가를 확실히 어떻게 머시깽이 해버릴지 알 수 있었다</p>
-              </div>
-              <div className={styles.day}>2024.06.13</div>
-            </div>
-          </li>
-          <li className={styles.postItem}>
-            <div className={styles.record}>
-              <div className={styles.thumbnail}></div>
-              <div className={styles.info}>
-                <h3 className={styles.username}>정승훈</h3>
-                <p className={styles.bookName}>책 제목</p>
-                <p className={styles.content}>용의자 X의 어쩌구를 읽고 누군가를 확실히 어떻게 머시깽이 해버릴지 알 수 있었다</p>
-              </div>
-              <div className={styles.day}>2024.06.13</div>
-            </div>
-          </li>
-          <li className={styles.postItem}>
-            <div className={styles.record}>
-              <div className={styles.thumbnail}></div>
-              <div className={styles.info}>
-                <h3 className={styles.username}>정승훈</h3>
-                <p className={styles.bookName}>책 제목</p>
-                <p className={styles.content}>용의자 X의 어쩌구를 읽고 누군가를 확실히 어떻게 머시깽이 해버릴지 알 수 있었다</p>
-              </div>
-              <div className={styles.day}>2024.06.13</div>
-            </div>
-          </li>
-          <li className={styles.postItem}>
-            <div className={styles.record}>
-              <div className={styles.thumbnail}></div>
-              <div className={styles.info}>
-                <h3 className={styles.username}>정승훈</h3>
-                <p className={styles.bookName}>책 제목</p>
-                <p className={styles.content}>용의자 X의 어쩌구를 읽고 누군가를 확실히 어떻게 머시깽이 해버릴지 알 수 있었다</p>
-              </div>
-              <div className={styles.day}>2024.06.13</div>
-            </div>
-          </li>
-          <li className={styles.postItem}>
-            <div className={styles.record}>
-              <div className={styles.thumbnail}></div>
-              <div className={styles.info}>
-                <h3 className={styles.username}>정승훈</h3>
-                <p className={styles.bookName}>책 제목</p>
-                <p className={styles.content}>용의자 X의 어쩌구를 읽고 누군가를 확실히 어떻게 머시깽이 해버릴지 알 수 있었다</p>
-              </div>
-              <div className={styles.day}>2024.06.13</div>
-            </div>
-          </li>
-        </ul>
-      </div>
+    <div
+      className={`${styles.container} ${styles.scrollable}`}
+      ref={containerRef}
+      onMouseDown={handleMouseDown}
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+      onMouseLeave={handleMouseLeave}
+      onWheel={handleWheel}
+    >
+      <Header />
+      <PopularBooks />
+      <PopularPosts />
     </div>
   );
 };

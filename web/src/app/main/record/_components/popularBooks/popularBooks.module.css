@@ -1,0 +1,57 @@
+.popularBooks {
+  padding-bottom:24px;
+  border-bottom: 1px solid #f3f3f3;
+  margin-bottom: 24px;
+}
+
+.sectionHeader {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  align-items: end;
+}
+  
+.sectionTitle {    
+  font-size: 1.125rem;
+}
+
+.sectionSubtitle {
+  font-size: 0.875rem;
+}
+
+.bookList {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  padding: 0 4px;
+  overflow-x: hidden;
+  cursor: grab;
+}
+
+.bookList:active {
+  cursor: grabbing;
+}
+
+.bookItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bookThumbnail {
+  width: 96px;
+  height: 128px;
+  border-radius: 10px;
+  background-color: var(--hint-gray);
+  margin-bottom: 8px;
+}
+
+.bookTitle {
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.bookAuthor {
+  font-size: 0.625rem;
+}
