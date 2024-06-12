@@ -41,17 +41,23 @@
   align-items: center;
   width: 100%;
   margin-bottom: 24px;
+  gap: 16px;
+  padding: 0 20px;
 }
 
 .button {
-  background-color: #ADD3FF;
-  color: #EBEBEB;
+  background-color: var(--primary-color);
+  color: #ffffff;
   font-size: 1.125rem;
   font-weight: bold;
   border-radius: 10px;
   height: 40px;
   max-width: 368px;
   width: 100%;
+}
+
+.button:disabled {
+  background-color: var(--hint-primary-color);
 }
 
 .skipButtonContainer {

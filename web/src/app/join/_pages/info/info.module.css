@@ -39,6 +39,12 @@
   font-weight: bold;
 }
 
+.inputGroup {
+  display: flex;
+  max-width: 200px;
+
+}
+
 .input {
   text-align: center;
   outline: none;
@@ -50,23 +56,42 @@
   font-size: 1.125rem;
 }
 
+.genderButton {
+  width: 100px;
+  border-bottom: 1px solid var(--hint-gray);
+  padding: 8px;
+  font-size: 1.125rem;
+  color: var(--hint-gray);
+}
+
 .buttonContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   margin-bottom: 24px;
+  gap: 16px;
+  padding: 0 20px;
+}
+
+.genderButton.selected {
+  color: var(--primary-color);
+  border-bottom: 1px solid var(--primary-color);
 }
 
 .button {
-  background-color: #ADD3FF;
-  color: #EBEBEB;
+  background-color: var(--primary-color);
+  color: #ffffff;
   font-size: 1.125rem;
   font-weight: bold;
   border-radius: 10px;
   height: 40px;
   max-width: 368px;
   width: 100%;
+}
+
+.button:disabled {
+  background-color: var(--hint-primary-color);
 }
 
 .skipButtonContainer {
