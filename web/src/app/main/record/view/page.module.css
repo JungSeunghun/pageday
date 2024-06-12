@@ -1,0 +1,80 @@
+.container {
+
+}
+
+.header {
+  width: 100%;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  margin-bottom: 54px;
+}
+
+.backButton {
+
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.username {
+  font-size: 1.125rem;
+  margin-left: 20px;
+  margin-bottom: 40px;
+}
+
+.imageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--hint-gray);
+  padding-bottom: 24px;
+}
+
+.contentImageContainer {
+  width: 360px;
+  height: 360px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.contentImage {
+  width: 360px;
+  height: auto;
+}
+
+.buttonContainer {
+  max-width: 368px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.followButton {
+  font-size: 1.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.shareButton {
+  font-size: 1.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.likeButton {
+  font-size: 1.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
