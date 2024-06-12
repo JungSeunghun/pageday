@@ -1,0 +1,115 @@
+.bookInfoContainer {
+  width: 100%;
+  border-bottom: 1px solid var(--hint-gray);
+}
+
+.title {
+  font-size: 1.125rem;
+  padding-left: 20px;
+}
+
+.bookSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 226px;
+  gap: 24px;
+}
+
+.bookThumbnail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 96px;
+  height: 178px;
+}
+
+.bookSearchButton {
+  width: 96px;
+  height: 128px;
+  border-radius: 10px;
+  background-color: var(--hint-gray);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.bookThumbnailImage {
+  width: 96px;
+  height: auto;
+}
+
+.description {
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: var(--hint-gray);
+  text-wrap: nowrap;
+}
+
+.bookTitle {
+  font-size: 0.875rem;
+  font-weight: bold;
+  margin-bottom: 4px;
+  text-wrap: nowrap;
+}
+
+.bookAuthor {
+  font-size: 0.625rem;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 36px;
+  width: 100%;
+}
+
+.button {
+  border: 1px solid var(--hint-gray);
+  width: 72px;
+  height: 24px;
+  color: var(--gray);
+  border-radius: 10px;
+}
+
+.button.selected {
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.inputContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clockIcon {
+  margin-right: 8px;
+}
+
+.inputGroup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.inputGroup:not(:first-child) {
+  margin-right: 12px;
+}
+
+.input {
+  width: 48px;
+  font-size: 0.75rem;
+  padding: 4px;
+}
+
+.text {
+  font-size: 0.75rem;
+  line-height: 1.5rem;
+}

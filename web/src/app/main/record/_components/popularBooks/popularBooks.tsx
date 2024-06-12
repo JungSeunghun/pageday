@@ -2,6 +2,7 @@
 
 import { useRef, MouseEvent } from 'react';
 import styles from './popularBooks.module.css';
+import Image from 'next/image';
 
 export default function PopularBooks() {
   const listRef = useRef<HTMLUListElement>(null);
@@ -59,54 +60,39 @@ export default function PopularBooks() {
         onMouseLeave={handleMouseLeave}
       >
         <li className={styles.bookItem}>
-          <div className={styles.bookThumbnail}></div>
-          <div className={styles.bookTitle}>책 제목</div>
-          <div className={styles.bookAuthor}>저자명</div>
+          <div className={styles.bookThumbnail}>
+            <Image className={styles.bookThumbnailImage} src={"/book/book1.webp"} width={96} height={128} alt='책 표지'/>
+          </div>
+          <div className={styles.bookTitle}>불편한 편의점</div>
+          <div className={styles.bookAuthor}>김호연</div>
         </li>
         <li className={styles.bookItem}>
-          <div className={styles.bookThumbnail}></div>
-          <div className={styles.bookTitle}>책 제목</div>
-          <div className={styles.bookAuthor}>저자명</div>
+          <div className={styles.bookThumbnail}>
+            <Image className={styles.bookThumbnailImage} src={"/book/book2.webp"} width={96} height={128} alt='책 표지'/>
+          </div>
+          <div className={styles.bookTitle}>달러구트 꿈 백화점</div>
+          <div className={styles.bookAuthor}>이미예</div>
         </li>
         <li className={styles.bookItem}>
-          <div className={styles.bookThumbnail}></div>
-          <div className={styles.bookTitle}>책 제목</div>
-          <div className={styles.bookAuthor}>저자명</div>
+          <div className={styles.bookThumbnail}>
+            <Image className={styles.bookThumbnailImage} src={"/book/book3.webp"} width={96} height={128} alt='책 표지'/>
+          </div>
+          <div className={styles.bookTitle}>아몬드</div>
+          <div className={styles.bookAuthor}>손원평</div>
         </li>
         <li className={styles.bookItem}>
-          <div className={styles.bookThumbnail}></div>
-          <div className={styles.bookTitle}>책 제목</div>
-          <div className={styles.bookAuthor}>저자명</div>
+          <div className={styles.bookThumbnail}>
+            <Image className={styles.bookThumbnailImage} src={"/book/book4.webp"} width={96} height={128} alt='책 표지'/>
+          </div>
+          <div className={styles.bookTitle}>지구 끝의 온실</div>
+          <div className={styles.bookAuthor}>김초엽</div>
         </li>
         <li className={styles.bookItem}>
-          <div className={styles.bookThumbnail}></div>
-          <div className={styles.bookTitle}>책 제목</div>
-          <div className={styles.bookAuthor}>저자명</div>
-        </li>
-        <li className={styles.bookItem}>
-          <div className={styles.bookThumbnail}></div>
-          <div className={styles.bookTitle}>책 제목</div>
-          <div className={styles.bookAuthor}>저자명</div>
-        </li>
-        <li className={styles.bookItem}>
-          <div className={styles.bookThumbnail}></div>
-          <div className={styles.bookTitle}>책 제목</div>
-          <div className={styles.bookAuthor}>저자명</div>
-        </li>
-        <li className={styles.bookItem}>
-          <div className={styles.bookThumbnail}></div>
-          <div className={styles.bookTitle}>책 제목</div>
-          <div className={styles.bookAuthor}>저자명</div>
-        </li>
-        <li className={styles.bookItem}>
-          <div className={styles.bookThumbnail}></div>
-          <div className={styles.bookTitle}>책 제목</div>
-          <div className={styles.bookAuthor}>저자명</div>
-        </li>
-        <li className={styles.bookItem}>
-          <div className={styles.bookThumbnail}></div>
-          <div className={styles.bookTitle}>책 제목</div>
-          <div className={styles.bookAuthor}>저자명</div>
+          <div className={styles.bookThumbnail}>
+            <Image className={styles.bookThumbnailImage} src={"/book/book5.webp"} width={96} height={128} alt='책 표지'/>
+          </div>
+          <div className={styles.bookTitle}>종의 기원</div>
+          <div className={styles.bookAuthor}>정유정</div>
         </li>
       </ul>
     </div>

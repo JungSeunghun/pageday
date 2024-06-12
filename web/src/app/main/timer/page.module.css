@@ -1,0 +1,169 @@
+.container {
+  position: relative;
+  padding-top: 92px;
+  height: 100dvh;
+}
+
+.goalContainer {
+  margin-bottom: 64px;
+  padding: 20px;
+}
+
+.goal {
+  border: 1px solid var(--primary-color);
+  display: flex;
+  width: 100%;
+  height: 108px;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 10px;
+}
+ 
+.dayContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.dayName {
+  font-size: 0.625rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+}
+
+.day {
+  font-size: 0.625rem;
+  font-weight: bold;
+}
+
+.inputGroupSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputGroup {
+  display: flex;
+  gap: 8px;
+  justify-content: left;
+  align-items: center;
+}
+
+.todayInput {
+  font-size: 0.875rem;
+  width: 150px;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 0.875rem;
+  min-width: fit-content;
+  line-height: 1.75rem;
+}
+
+.timer {
+  padding-bottom: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 79px;
+  border-bottom: 1px solid var(--hint-gray);
+}
+
+.time {
+  font-size: 5rem;
+  font-family: 'DigitalNumbers';
+  color: var(--gray);
+}
+
+.recordButtonGroup {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 48px;
+}
+
+.resetButton {
+  background-color: var(--gray);
+  color: #ffffff;
+  font-size: 1.125rem;
+  font-weight: bold;
+  width: 108px;
+  height: 52px;
+  border-radius: 10px;
+}
+
+.startButton {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  font-size: 1.125rem;
+  font-weight: bold;
+  width: 108px;
+  height: 52px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.pauseButton {
+  background-color: var(--hint-gray);
+  color: var(--gray);
+  font-size: 1.125rem;
+  font-weight: bold;
+  width: 108px;
+  height: 52px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.recordContainer {
+}
+
+.recordTitle {
+  font-size: 1.125rem;
+  font-weight: bold;
+  padding: 20px 0px 0px 20px;
+}
+
+.recordList {
+}
+
+.recordItem {
+  padding: 16px 36px;
+  border-bottom: 1px solid var(--hint-gray);
+}
+
+.recordInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttonGroup {
+  width: 100%;
+  position: absolute;
+  bottom: 96px;
+  display: flex;
+  justify-content: center;
+}
+
+.addButton {
+  max-width: 368px;
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  background-color: var(--primary-color);
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.addButton:disabled {
+  background-color: var(--hint-gray);
+}

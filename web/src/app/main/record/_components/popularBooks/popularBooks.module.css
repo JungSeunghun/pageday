@@ -44,6 +44,12 @@
   border-radius: 10px;
   background-color: var(--hint-gray);
   margin-bottom: 8px;
+  overflow: hidden;
+}
+
+.bookThumbnailImage {
+  width: 96px;
+  height: auto;
 }
 
 .bookTitle {

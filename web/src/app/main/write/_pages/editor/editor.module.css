@@ -5,7 +5,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0 25px;
 }
 
 .header {
@@ -35,18 +34,29 @@
 }
 
 .infoSection {
+  width: 100%;
+}
+
+.bookInfoSection {
   display: flex;
   align-items: center;
   width: 100%;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
+  padding: 0 24px;
 }
 
-.bookImage {
+.bookThumbnail {
   width: 96px;
   height: 128px;
   border-radius: 10px;
   background-color: var(--hint-gray);
   margin-right: 16px;
+  overflow: hidden;
+}
+
+.bookThumbnailImage {
+  width: 100%;
+  height: auto;
 }
 
 .bookInfo {
@@ -76,6 +86,64 @@
   font-size: 0.625rem;
 }
 
+.goalSection {
+  width: 100%;
+  margin-bottom: 24px;
+  padding: 0 32px;
+}
+
+.goal {
+  border: 1px solid var(--primary-color);
+  display: flex;
+  width: 100%;
+  height: 76px;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 10px;
+}
+ 
+.dayContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.dayName {
+  font-size: 0.625rem;
+  font-weight: bold;
+}
+
+.day {
+  font-size: 0.625rem;
+  font-weight: bold;
+}
+
+.inputGroupSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputGroup {
+  display: flex;
+  gap: 8px;
+  justify-content: left;
+  align-items: center;
+}
+
+.todayInput {
+  font-size: 0.875rem;
+  width: 120px;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.description {
+  font-size: 0.875rem;
+  min-width: fit-content;
+  line-height: 1.75rem;
+}
+
 .editor {
   width: 100%;
   margin-bottom: 15px;
@@ -83,7 +151,9 @@
 
 .imageSection {
   display: flex;
+  align-self: start;
   margin-bottom: 48px;
+  padding: 0 24px;
 }
 
 .addImage {
@@ -118,9 +188,19 @@
 
 .recordSection {
   width: 100%;
+  margin-bottom: 32px;
+}
+
+.title {
+  font-size: 1.125rem;
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
+
+.recordGroup {
   display: flex;
+  padding: 0 24px;
   justify-content: space-between;
-  margin-bottom: 88px;
 }
 
 .recordTitle {

@@ -1,21 +1,35 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './footer.module.css';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 
 export default function Footer() {
   const router = useRouter();
-  const [activeButton, setActiveButton] = useState<string>('home');
+  const pathname = usePathname();
+  const [activeButton, setActiveButton] = useState<string>('');
 
+  useEffect(() => {
+    if (pathname.includes('/main/write')) {
+      setActiveButton('write');
+    } else if (pathname.includes('/main/record')) {
+      setActiveButton('record');
+    } else if (pathname.includes('/main/analysis')) {
+      setActiveButton('analysis');
+    } else if (pathname.includes('/main/setting')) {
+      setActiveButton('setting');
+    } else {
+      setActiveButton('home');
+    }
+  }, [pathname]);
 
   const handleButtonClick = (button: string) => {
-    if(button === 'write') {
+    if (button === 'write') {
       router.push("/main/write");
     } else {
       setActiveButton(button);
-      if(button === 'home') {
+      if (button === 'home') {
         router.push("/main");
       } else {
         router.push(`/main/${button}`);

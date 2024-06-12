@@ -1,17 +1,22 @@
-.title {
-  font-size: 1.125rem;
-  margin-bottom: 20px;
+.recordContainer {
+  width: 100%;
+  padding: 16px 0;
 }
 
-.goalContainer {
-  margin-bottom: 24px;
+.title {
+  padding: 0px 20px;
+  margin-bottom: 16px;
+}
+
+.goalSection {
+  margin: 0 24px 16px 24px;
 }
 
 .goal {
   border: 1px solid var(--primary-color);
   display: flex;
   width: 100%;
-  height: 108px;
+  height: 76px;
   align-items: center;
   justify-content: space-around;
   border-radius: 10px;
@@ -27,8 +32,6 @@
 .dayName {
   font-size: 0.625rem;
   font-weight: bold;
-  color: var(--primary-color);
-  margin-bottom: 8px;
 }
 
 .day {
@@ -50,12 +53,37 @@
 
 .todayInput {
   font-size: 0.875rem;
-  width: 150px;
+  width: 120px;
   font-weight: bold;
+  color: var(--primary-color);
 }
 
 .description {
   font-size: 0.875rem;
   min-width: fit-content;
   line-height: 1.75rem;
+}
+
+.openGoalSection {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 16px;
+  margin-right: 24px;
+}
+
+.button {
+  width: 92px;
+  height: 32px;
+  font-weight: bold;
+  color: #ffffff;
+  border-radius: 10px;
+  background-color: var(--hint-gray);
+}
+
+.button.selected {
+  background-color: var(--primary-color);
 }

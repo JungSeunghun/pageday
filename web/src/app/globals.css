@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'DigitalNumbers';
+  src: url('/fonts/DigitalNumbers.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --hint-primary-color: #ADD3FF;
   --primary-color: #51A8DD;
