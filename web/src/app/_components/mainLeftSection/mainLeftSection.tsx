@@ -42,7 +42,14 @@ export default function MainLeftSection() {
           </li>
         </ul>
         <div className={styles.contactContainer}>
-          <span className={styles.contactLabel}>문의</span>|<span className={styles.contactEmail}>pagedaypage@gmail.com</span>
+          <span className={styles.contactLabel}>문의</span>
+          <span>|</span>
+          <span className={styles.contactEmail}>
+            pagedaypage
+          </span>
+          <span>
+            @gmail.com
+          </span>
         </div>
       </div>
     </main>

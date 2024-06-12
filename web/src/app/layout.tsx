@@ -47,8 +47,11 @@ export default function RootLayout({
             <div className={"mainLeftSection"}>
               <MainLeftSection />
             </div>
-            <div className={"mainRightSection"}>
+            <div className={"mainSection"}>
               {children}
+            </div>
+            <div className={"mainRightSection"}>
+
             </div>
           </div>
         </AuthProvider>

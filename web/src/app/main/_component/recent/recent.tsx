@@ -1,4 +1,5 @@
 import styles from './recent.module.css'
+import Image from 'next/image';
 
 export default function Recent() {
   return (
@@ -7,50 +8,84 @@ export default function Recent() {
 
       <section className={styles.mySection}>
         <h3 className={styles.subtitle}>내 기록</h3>
-        <div className={styles.record}>
-          <div className={styles.thumbnail}>
-
-          </div>
-          <div className={styles.info}>
-            <h3 className={styles.username}>애꾸눈해적</h3>
-            <p className={styles.day}>2024.06.13</p>
-            <p className={styles.content}>시집을 읽으니까 마음이 편해진다. 특히 운동주라 더욱 절절한 기분.</p>
+        <div className={styles.myRecord}>
+          <div className={styles.record}>
+            <div className={styles.thumbnail}>
+              <Image className={styles.thumbnailImage} src={"/book/book1.webp"} width={112} height={112} alt='책 표지'/>
+            </div>
+            <div className={styles.info}>
+              <h3 className={styles.username}>화영</h3>
+              <p className={styles.bookName}>불편한 편의점</p>
+              <p className={styles.content}>
+                엔딩이 조금 아쉽다.<br/>
+                뭔가 두루뭉실하게 끝난 느낌.<br/>
+                그래도 독고라는 인물의 이야기를 더 듣고 싶다.
+              </p>
+            </div>
+            <div className={styles.day}>2024.06.13</div>
           </div>
         </div>
       </section>
 
       <section className={styles.userSection}>
         <h3 className={styles.subtitle}>둘러보기</h3>
-        <div className={styles.record}>
-          <div className={styles.thumbnail}>
-
-          </div>
-          <div className={styles.info}>
-            <h3 className={styles.username}>정승훈</h3>
-            <p className={styles.day}>2024.06.13</p>
-            <p className={styles.content}>용의자 X의 어쩌구를 읽고 누군가를 확실히 어떻게 머시깽이 해버릴지 알 수 있었다</p>
-          </div>
-        </div>
-        <div className={styles.record}>
-          <div className={styles.thumbnail}>
-
-          </div>
-          <div className={styles.info}>
-            <h3 className={styles.username}>정승훈</h3>
-            <p className={styles.day}>2024.06.13</p>
-            <p className={styles.content}>용의자 X의 어쩌구를 읽고 누군가를 확실히 어떻게 머시깽이 해버릴지 알 수 있었다</p>
-          </div>
-        </div>
-        <div className={styles.record}>
-          <div className={styles.thumbnail}>
-
-          </div>
-          <div className={styles.info}>
-            <h3 className={styles.username}>정승훈</h3>
-            <p className={styles.day}>2024.06.13</p>
-            <p className={styles.content}>용의자 X의 어쩌구를 읽고 누군가를 확실히 어떻게 머시깽이 해버릴지 알 수 있었다</p>
-          </div>
-        </div>
+        <ul className={styles.postList}>
+          <li className={styles.postItem}>
+            <div className={styles.record}>
+              <div className={styles.thumbnail}></div>
+              <div className={styles.info}>
+                <h3 className={styles.username}>화영</h3>
+                <p className={styles.bookName}>책 제목</p>
+                <p className={styles.content}>용의자 X의 어쩌구를 읽고 누군가를 확실히 어떻게 머시깽이 해버릴지 알 수 있었다</p>
+              </div>
+              <div className={styles.day}>2024.06.13</div>
+            </div>
+          </li>
+          <li className={styles.postItem}>
+            <div className={styles.record}>
+              <div className={styles.thumbnail}></div>
+              <div className={styles.info}>
+                <h3 className={styles.username}>화영</h3>
+                <p className={styles.bookName}>책 제목</p>
+                <p className={styles.content}>용의자 X의 어쩌구를 읽고 누군가를 확실히 어떻게 머시깽이 해버릴지 알 수 있었다</p>
+              </div>
+              <div className={styles.day}>2024.06.13</div>
+            </div>
+          </li>
+          <li className={styles.postItem}>
+            <div className={styles.record}>
+              <div className={styles.thumbnail}></div>
+              <div className={styles.info}>
+                <h3 className={styles.username}>화영</h3>
+                <p className={styles.bookName}>책 제목</p>
+                <p className={styles.content}>용의자 X의 어쩌구를 읽고 누군가를 확실히 어떻게 머시깽이 해버릴지 알 수 있었다</p>
+              </div>
+              <div className={styles.day}>2024.06.13</div>
+            </div>
+          </li>
+          <li className={styles.postItem}>
+            <div className={styles.record}>
+              <div className={styles.thumbnail}></div>
+              <div className={styles.info}>
+                <h3 className={styles.username}>화영</h3>
+                <p className={styles.bookName}>책 제목</p>
+                <p className={styles.content}>용의자 X의 어쩌구를 읽고 누군가를 확실히 어떻게 머시깽이 해버릴지 알 수 있었다</p>
+              </div>
+              <div className={styles.day}>2024.06.13</div>
+            </div>
+          </li>
+          <li className={styles.postItem}>
+            <div className={styles.record}>
+              <div className={styles.thumbnail}></div>
+              <div className={styles.info}>
+                <h3 className={styles.username}>화영</h3>
+                <p className={styles.bookName}>책 제목</p>
+                <p className={styles.content}>용의자 X의 어쩌구를 읽고 누군가를 확실히 어떻게 머시깽이 해버릴지 알 수 있었다</p>
+              </div>
+              <div className={styles.day}>2024.06.13</div>
+            </div>
+          </li>
+        </ul>
       </section>  
     
     </section>

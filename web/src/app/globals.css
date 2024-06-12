@@ -1,15 +1,9 @@
 :root {
   --hint-primary-color: #ADD3FF;
   --primary-color: #51A8DD;
-  --primary-text-color: #348CCB;
-  --primary-button-color: #65BCEB;
-  --primary-button-hover-color: #348CCB;
-  --primary-gradient-color: linear-gradient(135deg, #65BCEB 0%, #348CCB 100%);
   --error-color: red;
-  --background-color: #fff;
   --font-color: #3B3B3B;
   --font-grey-color: #7c7c7c;
-  --shadow-color: #aeaec066;
   --border-color: #d9d9d9;
   --gray: #8E8E8E;
   --hint-gray: #EBEBEB;
@@ -23,6 +17,10 @@ html, body {
   margin: 0;
   background-color: var(--background-color);
   color: var(--font-color);
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
 }
   
 body {
@@ -93,20 +91,33 @@ button {
   flex: 1;
 }
 
-.mainRightSection {
+.mainSection {
   max-width: 560px;
   width: 100%;
   flex-shrink: 0;
-}  
+}
+
+.mainRightSection {
+  background-color: #f3f3f3;
+  max-width: 152px;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+@media (max-width: 1024px) {
+  .mainRightSection {
+    display: none;
+  }
+}
 
 @media (max-width: 768px) {
   .mainLeftSection {
       display: none;
   }
 
-  .mainRightSection {
-      flex: 1;
-      max-width: none;
+  .mainSection {
+    flex: 1;
+    max-width: none;
   }
 }
 

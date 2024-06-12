@@ -1,6 +1,13 @@
 .container {
   position: relative;
   padding: 96px 25px 56px 25px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
   height: 100dvh;
-  overflow: auto;
+  cursor: grab;
+}
+
+.container:active {
+  cursor: grabbing;
 }

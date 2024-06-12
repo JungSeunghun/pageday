@@ -98,7 +98,7 @@ export default function Record() {
 
   return (
     <div
-      className={`${styles.container} ${styles.scrollable}`}
+      className={styles.container}
       ref={containerRef}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}

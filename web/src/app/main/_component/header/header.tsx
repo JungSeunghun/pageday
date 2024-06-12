@@ -6,7 +6,7 @@ export default function Header() {
     <>
       <section className={styles.headerSection}>
         <section className={styles.headerLeftSection}></section>
-        <section className={styles.headerRightSection}>
+        <section className={styles.headerMainSection}>
           <header className={styles.header}>
             <Image src="/main/textlogo.svg" alt="페이지데이 로고" className={styles.logo} width={108} height={32}/>
             <div className={styles.iconContainer}>
@@ -19,6 +19,7 @@ export default function Header() {
             </div>
           </header>
         </section>
+        <section className={styles.headerRightSection}></section>
       </section>
     </>
   );

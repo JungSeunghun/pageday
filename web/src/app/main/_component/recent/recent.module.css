@@ -12,21 +12,42 @@
   margin-bottom: 16px;
 }
 
+.myRecord {
+  padding: 0 4px;
+}
+
+.postList {
+  padding: 0 4px;
+}
+
 .record {
   border: 1px solid var(--primary-color);
   border-radius: 10px;
   height: 144px;
   display: flex;
+  gap: 16px;
   align-items: center;
   margin-bottom: 16px;
+  padding: 16px;
+  position: relative;
 }
 
 .thumbnail {
-  min-width: 112px;
+  width: 112px;
   height: 112px;
   background-color: #d9d9d9;
-  margin: 0 16px;
   border-radius: 10px;
+  overflow: hidden;
+  flex: none;
+}
+
+.thumbnailImage {
+  width: 100%;
+  height: auto;
+} 
+
+.info {
+  padding: 8px;
 }
 
 .username {
@@ -35,11 +56,21 @@
   margin-bottom: 8px;
 }
 
-.day {
+.bookName {
   font-size: 0.625rem;
+  font-weight: bold;
+  color: var(--primary-color);
   margin-bottom: 8px;
 }
 
 .content {
   font-size: 0.75rem;
+}
+
+.day {
+  position: absolute;
+  bottom: 8px;
+  right: 13px;
+  font-size: 0.625rem;
+  color: var(--gray);
 }
