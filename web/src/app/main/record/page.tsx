@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, MouseEvent, WheelEvent } from 'react';
+import { useRef, MouseEvent, WheelEvent, TouchEvent } from 'react';
 
 import Header from './_components/header/header';
 import PopularBooks from './_components/popularBooks/popularBooks';
@@ -74,6 +74,49 @@ export default function Record() {
     }
   };
 
+  const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
+    const container = containerRef.current;
+    if (container) {
+      const touch = e.touches[0];
+      container.dataset.isDragging = 'true';
+      container.dataset.startY = String(touch.pageY - container.offsetTop);
+      container.dataset.scrollTop = String(container.scrollTop);
+      velocity.current = 0;
+      lastY.current = touch.pageY;
+      if (animationFrameId.current !== null) {
+        cancelAnimationFrame(animationFrameId.current);
+        animationFrameId.current = null;
+      }
+    }
+  };
+
+  const handleTouchMove = (e: TouchEvent<HTMLDivElement>) => {
+    const container = containerRef.current;
+    if (container && container.dataset.isDragging === 'true') {
+      e.preventDefault();
+      const touch = e.touches[0];
+      const startY = Number(container.dataset.startY);
+      const scrollTop = Number(container.dataset.scrollTop);
+      const y = touch.pageY - container.offsetTop;
+      const walk = (startY - y);
+      container.scrollTop = scrollTop + walk;
+      if (lastY.current !== null) {
+        velocity.current = lastY.current - y;
+      }
+      lastY.current = touch.pageY;
+    }
+  };
+
+  const handleTouchEnd = () => {
+    const container = containerRef.current;
+    if (container) {
+      container.dataset.isDragging = 'false';
+      if (velocity.current !== 0) {
+        startDeceleration();
+      }
+    }
+  };
+
   const startDeceleration = () => {
     const container = containerRef.current;
     if (!container) return;
@@ -97,7 +140,7 @@ export default function Record() {
   };
 
   return (
-    <div
+    <div 
       className={styles.container}
       ref={containerRef}
       onMouseDown={handleMouseDown}
@@ -105,7 +148,9 @@ export default function Record() {
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseLeave}
       onWheel={handleWheel}
-    >
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}>
       <Header />
       <PopularBooks />
       <PopularPosts />

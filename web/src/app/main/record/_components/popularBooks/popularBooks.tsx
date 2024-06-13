@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, MouseEvent } from 'react';
+import { useRef, MouseEvent, TouchEvent } from 'react';
 import styles from './popularBooks.module.css';
 import Image from 'next/image';
 
@@ -45,6 +45,38 @@ export default function PopularBooks() {
     }
   };
 
+  const handleTouchStart = (e: TouchEvent<HTMLUListElement>) => {
+    const list = listRef.current;
+    if (list) {
+      const touch = e.touches[0];
+      list.dataset.isDragging = 'true';
+      list.dataset.startX = String(touch.pageX - list.offsetLeft);
+      list.dataset.scrollLeft = String(list.scrollLeft);
+      lastX.current = touch.pageX;
+    }
+  };
+
+  const handleTouchMove = (e: TouchEvent<HTMLUListElement>) => {
+    const list = listRef.current;
+    if (list && list.dataset.isDragging === 'true') {
+      e.preventDefault();
+      const touch = e.touches[0];
+      const startX = Number(list.dataset.startX);
+      const scrollLeft = Number(list.dataset.scrollLeft);
+      const x = touch.pageX - list.offsetLeft;
+      const walk = (startX - x);
+      list.scrollLeft = scrollLeft + walk;
+      lastX.current = touch.pageX;
+    }
+  };
+
+  const handleTouchEnd = () => {
+    const list = listRef.current;
+    if (list) {
+      list.dataset.isDragging = 'false';
+    }
+  };
+
   return (
     <div className={styles.popularBooks}>
       <div className={styles.sectionHeader}>
@@ -58,6 +90,9 @@ export default function PopularBooks() {
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseLeave}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
       >
         <li className={styles.bookItem}>
           <div className={styles.bookThumbnail}>

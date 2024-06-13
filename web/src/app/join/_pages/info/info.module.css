@@ -22,12 +22,13 @@
   max-width: 416px;
   width: 100%;
   margin-bottom: 79px;
+  padding: 0px 24px;
 }
 
 .inputRow {
   display: flex;
   justify-content: space-between;
-  }
+}
   
 .inputRow:not(:last-child) {
   margin-bottom: 36px;
