@@ -1,0 +1,64 @@
+.title {
+  font-size: 1.125rem;
+  margin-bottom: 20px;
+  padding: 0px 20px;
+}
+
+.postList {
+  padding: 0 24px;
+}
+
+.record {
+  border: 1px solid var(--primary-color);
+  border-radius: 10px;
+  height: 144px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 16px;
+  position: relative;
+}
+
+.thumbnail {
+  width: 112px;
+  height: 112px;
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  overflow: hidden;
+  flex: none;
+}
+
+.thumbnailImage {
+  width: 100%;
+  height: auto;
+} 
+
+.info {
+  padding: 8px;
+}
+
+.username {
+  font-size: 0.625rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.bookName {
+  font-size: 0.625rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+}
+
+.content {
+  font-size: 0.75rem;
+}
+
+.day {
+  position: absolute;
+  bottom: 8px;
+  right: 13px;
+  font-size: 0.625rem;
+  color: var(--gray);
+}

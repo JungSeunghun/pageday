@@ -17,8 +17,8 @@ export default function Footer() {
       setActiveButton('record');
     } else if (pathname.includes('/main/analysis')) {
       setActiveButton('analysis');
-    } else if (pathname.includes('/main/setting')) {
-      setActiveButton('setting');
+    } else if (pathname.includes('/main/my')) {
+      setActiveButton('my');
     } else {
       setActiveButton('home');
     }

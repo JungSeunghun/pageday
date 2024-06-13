@@ -1,0 +1,80 @@
+.title {
+  font-size: 1.125rem;
+  margin-bottom: 20px;
+  padding: 0px 20px;
+}
+
+.goalContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 24px;
+  padding: 0px 24px;
+}
+  
+.goal {
+  padding: 0px 24px;
+  border: 1px solid var(--primary-color);
+  display: flex;
+  width: 100%;
+  height: 108px;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 10px;
+}
+ 
+.dayContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.dayName {
+  font-size: 0.625rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+}
+
+.day {
+  font-size: 0.625rem;
+  font-weight: bold;
+}
+
+.inputGroupSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputGroup {
+  display: flex;
+  gap: 8px;
+  justify-content: left;
+  align-items: center;
+}
+
+.todayInput {
+  font-size: 0.875rem;
+  width: 150px;
+  font-weight: bold;
+}
+
+.todayInput {
+  font-size: 0.875rem;
+  width: 150px;
+  font-weight: bold;
+}
+
+.tomorrowInput {
+  font-size: 0.875rem;
+  width: 150px;
+  font-weight: bold;
+  color: var(--gray);
+}
+
+.description {
+  font-size: 0.875rem;
+  min-width: fit-content;
+  line-height: 1.75rem;
+}
