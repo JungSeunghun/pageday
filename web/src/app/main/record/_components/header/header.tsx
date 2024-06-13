@@ -6,7 +6,7 @@ export default function Header() {
       <div className={styles.headerLeftSection}>
 
       </div>
-      <div className={styles.headerRightSection}>
+      <div className={styles.headerMainSection}>
         <header className={styles.header}>
           <h2 className={styles.headerTitle}>
             기록 둘러보기
@@ -18,6 +18,9 @@ export default function Header() {
             </button>
           </div>
         </header>
+      </div>
+      <div className={styles.headerRightSection}>
+
       </div>
     </div>
   );

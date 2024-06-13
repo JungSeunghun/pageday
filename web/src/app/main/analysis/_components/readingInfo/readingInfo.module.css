@@ -1,0 +1,25 @@
+.section {
+  border-bottom: 1px solid var(--hint-gray);
+  padding-bottom: 48px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 24px;
+  font-size: 1.125rem;
+}
+
+.listMonth {
+  color: var(--primary-color);
+}
+
+.listValue {
+  color: var(--primary-color);
+}

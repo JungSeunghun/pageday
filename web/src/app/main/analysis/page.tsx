@@ -1,15 +1,14 @@
 "use client";
 
 import { useRef, MouseEvent, WheelEvent } from 'react';
+import Header from './_components/header/header';
 import styles from './page.module.css';
-import Header from './_component/header/header';
-import UserInfo from './_component/userInfo/userInfo';
-import Attendance from './_component/attendance/attendance';
-import Goal from './_component/goal/goal';
-import Recent from './_component/recent/recent';
-import Timer from './_component/timer/timer';
+import Image from 'next/image';
+import ReadingInfo from './_components/readingInfo/readingInfo';
+import ReadingGenres from './_components/readingGenres/readingGenres';
+import ReadingAction from './_components/readingAction/readingAction';
 
-export default function Main() {
+export default function Analysis() {
   const containerRef = useRef<HTMLDivElement>(null);
   const velocity = useRef<number>(0);
   const lastY = useRef<number | null>(null);
@@ -107,12 +106,23 @@ export default function Main() {
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseLeave}
       onWheel={handleWheel}>
-      <Header />
-      <UserInfo />
-      <Attendance />
-      <Goal />
-      <Timer />
-      <Recent />
+      <Header/>
+      <div className={styles.report}>
+        <div className={styles.sectionHeader}>
+          <div className={styles.sectionTitle}>
+            내 독서지수 <span className={styles.sectionPoint}>92점</span>
+          </div>
+          <div className={styles.subtitle}>독서 활동 통계 전체보기</div>
+        </div>
+
+        <ReadingInfo />
+        <ReadingGenres />
+        <ReadingAction />
+        
+        <div className={styles.buttonContainer}>
+          <button className={styles.button}>독서지수 높이러 가기!</button>
+        </div>
+      </div>
     </div>
   );
 }

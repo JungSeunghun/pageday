@@ -67,10 +67,10 @@ export default function Footer() {
             <Image src={activeButton === 'analysis' ? "/icon/analysisOn.svg" : "/icon/analysisOff.svg"} width={40} height={40} alt="분석 아이콘" />
           </button>
           <button
-            className={`${styles.footerButton} ${activeButton === 'setting' ? styles.active : ''}`}
-            onClick={() => handleButtonClick('setting')}
+            className={`${styles.footerButton} ${activeButton === 'my' ? styles.active : ''}`}
+            onClick={() => handleButtonClick('my')}
           >
-            <Image src={activeButton === 'setting' ? "/icon/settingOn.svg" : "/icon/settingOff.svg"} width={40} height={40} alt="설정 아이콘" />
+            <Image src={activeButton === 'my' ? "/icon/myOn.svg" : "/icon/myOff.svg"} width={40} height={40} alt="마이페이지 아이콘" />
           </button>
         </footer>
       </section>

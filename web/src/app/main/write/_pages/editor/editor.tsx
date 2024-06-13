@@ -17,7 +17,7 @@ export default function Editor({handleBack}:{handleBack: () => void}) {
             업로드 1/2
           </h2>
           <button onClick={handleBack} className={styles.backButton}>
-            <Image src="/icon/back.svg" width={40} height={40} alt="닫기" />
+            <Image src="/icon/back.svg" width={18} height={24} alt="닫기" />
           </button>
         </div>
       </header>

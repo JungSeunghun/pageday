@@ -1,0 +1,39 @@
+.section {
+  border-bottom: 1px solid var(--hint-gray);
+  padding: 20px;
+}
+
+.sectionTitle {
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin-bottom: 32px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 24px;
+  font-size: 1.125rem;
+  gap: 24px;
+}
+
+.listMonth {
+  color: var(--primary-color);
+}
+
+.listValue {
+  color: var(--primary-color);
+}
+
+.chartContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}

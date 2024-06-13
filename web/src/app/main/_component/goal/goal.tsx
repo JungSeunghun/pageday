@@ -5,7 +5,7 @@ import styles from './goal.module.css';
 
 export default function Goal() {
   const [todayAction, setTodayAction] = useState('퇴근 후 샤워');
-  const [todayBook, setTodayBook] = useState('어린 왕자');
+  const [todayBook, setTodayBook] = useState('불편한 편의점');
 
   const handleTodayGoalChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTodayAction(event.target.value);

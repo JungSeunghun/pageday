@@ -13,7 +13,7 @@ interface Record {
 
 export default function Timer() {
   const [todayAction, setTodayAction] = useState<string>('퇴근 후 샤워');
-  const [todayBook, setTodayBook] = useState<string>('어린 왕자');
+  const [todayBook, setTodayBook] = useState<string>('불편한 편의점');
   const [time, setTime] = useState<number>(0);
   const [isRunning, setIsRunning] = useState<boolean>(false);
   const [records, setRecords] = useState<Record[]>([]);
