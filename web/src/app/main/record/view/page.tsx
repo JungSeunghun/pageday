@@ -149,6 +149,7 @@ export default function ViewPage() {
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}>
+      <Header />
       <div className={styles.contentContainer}>
         <h3 className={styles.contentUsername}>
           화영님
