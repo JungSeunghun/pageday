@@ -9,6 +9,7 @@ export default function PopularPosts() {
   const router = useRouter();
   const [isDragging, setIsDragging] = useState(false);
   const startX = useRef<number | null>(null);
+  const startY = useRef<number | null>(null);
 
   const onHandleClick = (e: MouseEvent<HTMLLIElement>) => {
     if (!isDragging) {
@@ -18,17 +19,22 @@ export default function PopularPosts() {
 
   const handleMouseDown = (e: MouseEvent<HTMLLIElement>) => {
     startX.current = e.pageX;
+    startY.current = e.pageY;
     setIsDragging(false);
   };
 
   const handleMouseMove = (e: MouseEvent<HTMLLIElement>) => {
-    if (startX.current !== null && Math.abs(e.pageX - startX.current) > 5) {
+    if (startX.current !== null && Math.abs(e.pageX - startX.current) > 1) {
+      setIsDragging(true);
+    }
+    if (startY.current !== null && Math.abs(e.pageY - startY.current) > 1) {
       setIsDragging(true);
     }
   };
 
   const handleMouseUp = () => {
     startX.current = null;
+    startY.current = null;
   };
 
   return (

@@ -17,6 +17,7 @@ export default function Timer() {
   const [time, setTime] = useState<number>(0);
   const [isRunning, setIsRunning] = useState<boolean>(false);
   const [records, setRecords] = useState<Record[]>([]);
+  const [isFocusModeOn, setIsFocusModeOn] = useState<boolean>(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleTodayGoalChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -63,9 +64,29 @@ export default function Timer() {
     return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}.${String(centiseconds).padStart(2, '0')}`;
   };
 
+  const handleFocusModeToggle = () => {
+    setIsFocusModeOn(!isFocusModeOn);
+  };
+
   return (
     <div className={styles.container}>
       <Header/>
+      <div className={styles.focusContainer}>
+        <div className={styles.focusTitleContainer}>
+          <h3 className={styles.focusTitle}>
+            독서 집중 모드
+          </h3>
+          <div className={styles.focusSubtitle}>
+            독서모드일 때 Push 알림, 통화 수신을 차단합니다.
+          </div>
+        </div>
+        <button 
+          className={`${styles.onButton} ${isFocusModeOn ? styles.on : ''}`} 
+          onClick={handleFocusModeToggle}
+        >
+          {isFocusModeOn ? 'ON' : 'OFF'}
+        </button>
+      </div>
       <div className={styles.goalContainer}>
         <div className={styles.goal}>
           <div className={styles.dayContainer}>

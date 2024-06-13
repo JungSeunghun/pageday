@@ -8,7 +8,8 @@ const Home: React.FC = () => {
   const router = useRouter();
 
   const handleKakaoLogin = () => {
-    router.push("/api/auth/kakao");
+    // router.push("/api/auth/kakao");
+    router.push("/join");
   };
   
   return (

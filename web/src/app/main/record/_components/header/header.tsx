@@ -12,7 +12,7 @@ export default function Header() {
             기록 둘러보기
           </h2>
           <div className={styles.searchBox}>
-            <input type="text" className={styles.searchInput} placeholder='책제목을 입력해주세요.'/>
+            <input type="text" className={styles.searchInput} placeholder='검색어를 입력해주세요.'/>
             <button className={styles.searchButton}>
               검색
             </button>

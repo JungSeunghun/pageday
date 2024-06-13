@@ -30,12 +30,22 @@
 }
 
 .bannerContainer {
+  max-width: 528px;
+  width: 100%;
   margin-bottom: 24px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  padding-top: 19.7%; /* This maintains the aspect ratio */
 }
 
 .banner {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the container */
 }
 
 .description {
